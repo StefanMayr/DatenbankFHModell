@@ -5,8 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatenbankFHModell"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Fachhochschule Datenbank" Height="650" Width="800" WindowState="Maximized" Background="LightGray">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"></ColumnDefinition>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
 
+        <Border Grid.Column="0" Margin="10,20,20,20" BorderBrush="Black" BorderThickness="1" CornerRadius="5" Background="White">
+            
+        </Border>
+
+        <Border Grid.Column="2" Margin="10,20,20,20" >
+            <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
+                <Border Height="230" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <StackPanel>
+                        <Label Foreground="Black" FontFamily="Bahnschrift Condensed" FontSize="18">Datenbankverbindung:</Label>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
+                            <Label FontSize="14" FontFamily="Bahnschrift Condensed">Serveraddresse:</Label>
+                            <TextBox Width="250" Margin="10,0.5,0.5,0.5"></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
+                            <Label FontSize="14"  FontFamily="Bahnschrift Condensed">Server Port:</Label>
+                            <TextBox Width="250" Margin="30,0.5,0.5,0.5"></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
+                            <Label FontSize="14"  FontFamily="Bahnschrift Condensed">Datenbankname:</Label>
+                            <TextBox Width="250" Margin="8,0.5,0.5,0.5"></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
+                            <Label FontSize="14"  FontFamily="Bahnschrift Condensed">Benutzer:</Label>
+                            <TextBox Width="250" Margin="42,0.5,0.5,0.5"></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
+                            <Label FontSize="14"  FontFamily="Bahnschrift Condensed">Passwort:</Label>
+                            <TextBox Width="250" Margin="39,0.5,0.5,0.5"></TextBox>
+                        </StackPanel>
+
+                        <Button Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,5">Verbinden</Button>
+                    </StackPanel>
+                </Border>
+
+                <Border Height="150" Margin="0,5,0,5" CornerRadius="5" BorderThickness="1" BorderBrush="Black">
+                    <StackPanel>
+                        <Label FontSize="14">Daten hinzufügen:</Label>
+                        <StackPanel Orientation="Horizontal" Height="30">
+                            <Button HorizontalAlignment="Left" Width="179" Margin="2">Student</Button>
+                            <Button HorizontalAlignment="Right" Width="179" Margin="2">Lehrenden</Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="30">
+                            <Button HorizontalAlignment="Left" Width="179" Margin="2">Fakultät</Button>
+                            <Button HorizontalAlignment="Right" Width="179" Margin="2">Lehrveranstaltung</Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="30">
+                            <Button HorizontalAlignment="Left" Width="179" Margin="2">Gebäude</Button>
+                            <Button HorizontalAlignment="Right" Width="179" Margin="2">Raum</Button>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                </Border>
+                
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
