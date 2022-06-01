@@ -30,8 +30,9 @@ namespace DatenbankFHModell
         }
 
         //Insert statement
-        public void Connect(string connectionString)
+        public void Connect(string hostname, string port, string databasename, string username, string password)
         {
+            string connectionString = "SERVER=" + hostname + ";" + "PORT=" + port + ";" + "DATABASE=" + databasename + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";" + "Connection Timeout =" + "300" + ";";
             connection = new MySqlConnection(connectionString);
             //open connection
             if (this.OpenConnection() == true)
@@ -39,6 +40,10 @@ namespace DatenbankFHModell
                 //close connection     
                 MessageBox.Show("Connection established to server: " + connection.DataSource + ", database: " + connection.Database);
                 this.CloseConnection();
+            }
+            else
+            {
+                MessageBox.Show("Nicht funktioniert!");
             }
         }
 
@@ -194,6 +199,12 @@ namespace DatenbankFHModell
             {
                 return Count;
             }
+        }
+
+        public void PushStudent(int Matrikelnummer, string Name, string Wohnort, string Geschlecht, int Alter)
+        {
+            string query = "INSERT INTO Student(Matrikelnummer,NameStudent,WohnortStudent,GeschlechtStudent,AlterStudent) VALUES (" + Matrikelnummer + ",'" + Name + ",'" + Wohnort + ",'" + Geschlecht + ",'" + Alter + ");";
+            Insert(query);
         }
     
 }

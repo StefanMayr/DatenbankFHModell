@@ -20,9 +20,23 @@ namespace DatenbankFHModell
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        DBManager TheDBManager;
+        Eventclass TheEvents;
+        public MainWindow(DBManager thedbManager, Eventclass theevents)
         {
             InitializeComponent();
+            TheDBManager = thedbManager;
+            TheEvents = theevents;
+        }
+
+        private void btn_Connect_Click(object sender, RoutedEventArgs e)
+        {
+            TheDBManager.Connect(Hostname.Text, txt_Server.Text, txt_Databasename.Text, txt_Benutzer.Text, txt_password.Text);
+        }
+
+        private void btn_Student_Click(object sender, RoutedEventArgs e)
+        {
+            TheEvents.SendStartStudent(sender, e);
         }
     }
 }

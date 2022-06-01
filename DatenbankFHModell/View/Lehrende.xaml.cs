@@ -17,9 +17,9 @@ namespace DatenbankFHModell
     /// <summary>
     /// Interaktionslogik für Lehrende.xaml
     /// </summary>
-    public partial class Lehrende : Window
+    public partial class Lehrendeclass : Window
     {
-        public Lehrende()
+        public Lehrendeclass()
         {
             InitializeComponent();
         }

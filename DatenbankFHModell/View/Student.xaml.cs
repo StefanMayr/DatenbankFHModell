@@ -19,9 +19,18 @@ namespace DatenbankFHModell
     /// </summary>
     public partial class Student : Window
     {
-        public Student()
+        DBManager TheDBManager;
+        Eventclass TheEvents;
+        public Student(DBManager thedbmanager, Eventclass theEvents)
         {
             InitializeComponent();
+            TheDBManager = thedbmanager;
+            TheEvents = theEvents;
+        }
+
+        private void btn_Insert_Click(object sender, RoutedEventArgs e)
+        {
+            TheDBManager.PushStudent(Convert.ToInt32(txt_Matr.Text), txt_Name.Text, txt_Wohnort.Text, txt_Geschl.Text, Convert.ToInt32(txt_Alter.Text));
         }
     }
 }

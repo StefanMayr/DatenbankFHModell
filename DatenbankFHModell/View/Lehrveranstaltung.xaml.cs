@@ -17,9 +17,9 @@ namespace DatenbankFHModell
     /// <summary>
     /// Interaktionslogik für Lehrveranstaltung.xaml
     /// </summary>
-    public partial class Lehrveranstaltung : Window
+    public partial class Lehrveranstaltungsclass : Window
     {
-        public Lehrveranstaltung()
+        public Lehrveranstaltungsclass()
         {
             InitializeComponent();
         }

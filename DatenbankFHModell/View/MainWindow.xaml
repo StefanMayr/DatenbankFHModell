@@ -24,30 +24,30 @@
 
                         <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
                             <Label FontSize="14" FontFamily="Bahnschrift Condensed">Serveraddresse:</Label>
-                            <TextBox Width="250" Margin="10,0.5,0.5,0.5"></TextBox>
+                            <TextBox Width="250" x:Name="Hostname" Margin="10,0.5,0.5,0.5"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
                             <Label FontSize="14"  FontFamily="Bahnschrift Condensed">Server Port:</Label>
-                            <TextBox Width="250" Margin="30,0.5,0.5,0.5"></TextBox>
+                            <TextBox Width="250" x:Name="txt_Server" Margin="30,0.5,0.5,0.5"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
                             <Label FontSize="14"  FontFamily="Bahnschrift Condensed">Datenbankname:</Label>
-                            <TextBox Width="250" Margin="8,0.5,0.5,0.5"></TextBox>
+                            <TextBox Width="250" x:Name="txt_Databasename" Margin="8,0.5,0.5,0.5"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
                             <Label FontSize="14"  FontFamily="Bahnschrift Condensed">Benutzer:</Label>
-                            <TextBox Width="250" Margin="42,0.5,0.5,0.5"></TextBox>
+                            <TextBox Width="250" x:Name="txt_Benutzer" Margin="42,0.5,0.5,0.5"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
                             <Label FontSize="14"  FontFamily="Bahnschrift Condensed">Passwort:</Label>
-                            <TextBox Width="250" Margin="39,0.5,0.5,0.5"></TextBox>
+                            <TextBox Width="250" x:Name="txt_password" Margin="39,0.5,0.5,0.5"></TextBox>
                         </StackPanel>
 
-                        <Button Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,5">Verbinden</Button>
+                        <Button Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" x:Name="btn_Connect" Click="btn_Connect_Click" Margin="0,0,5,5">Verbinden</Button>
                     </StackPanel>
                 </Border>
 
@@ -55,7 +55,7 @@
                     <StackPanel>
                         <Label FontSize="14">Daten hinzufügen:</Label>
                         <StackPanel Orientation="Horizontal" Height="30">
-                            <Button HorizontalAlignment="Left" Width="179" Margin="2">Student</Button>
+                            <Button HorizontalAlignment="Left" x:Name="btn_Student" Click="btn_Student_Click" Width="179" Margin="2">Student</Button>
                             <Button HorizontalAlignment="Right" Width="179" Margin="2">Lehrenden</Button>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="30">

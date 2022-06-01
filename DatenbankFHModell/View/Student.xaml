@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatenbankFHModell"
         mc:Ignorable="d"
-        Title="Student" Height="450" Width="800">
-    <Grid>
-        
+        Title="Student" Height="300" Width="200" WindowStyle="None">
+    <Grid Background="LightGray">
+        <StackPanel>
+            <Label>Name:</Label>
+            <TextBox x:Name="txt_Name"></TextBox>
+            <Label>Matrikelnummer</Label>
+            <TextBox x:Name="txt_Matr"></TextBox>
+            <Label>Wohnort</Label>
+            <TextBox x:Name="txt_Wohnort"></TextBox>
+            <Label>Geschlecht</Label>
+            <TextBox x:Name="txt_Geschl"></TextBox>
+            <Label>Alter</Label>
+            <TextBox x:Name="txt_Alter"></TextBox>
+            <Button Height="25" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
+        </StackPanel>
     </Grid>
 </Window>

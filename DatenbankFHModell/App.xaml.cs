@@ -13,5 +13,17 @@ namespace DatenbankFHModell
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            DBManager TheDBMAnger = new DBManager();
+            Eventclass TheEvents = new Eventclass();
+            //User 
+            MainWindow Mynewwindow= new MainWindow(TheDBMAnger, TheEvents);
+            Student TheSTudent = new Student(TheDBMAnger, TheEvents);
+
+            Presenter MyPresenter = new Presenter(TheEvents, TheDBMAnger, Mynewwindow, TheSTudent);
+            Mynewwindow.ShowDialog();
+        }
     }
 }
