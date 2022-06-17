@@ -201,9 +201,17 @@ namespace DatenbankFHModell
             }
         }
 
+        /// <summary>
+        /// Tested and ok
+        /// </summary>
+        /// <param name="Matrikelnummer"></param>
+        /// <param name="Name"></param>
+        /// <param name="Wohnort"></param>
+        /// <param name="Geschlecht"></param>
+        /// <param name="Alter"></param>
         public void PushStudent(int Matrikelnummer, string Name, string Wohnort, string Geschlecht, int Alter)
         {
-            string query = "INSERT INTO Student(Matrikelnummer,NameStudent,WohnortStudent,GeschlechtStudent,AlterStudent) VALUES (" + Matrikelnummer + ",'" + Name + ",'" + Wohnort + ",'" + Geschlecht + ",'" + Alter + ");";
+            string query = "INSERT INTO Student(Matrikelnummer,NameStudent,WohnortStudent,GeschlechtStudent,AlterStudent) VALUES (" + Matrikelnummer + ",'" + Name + "','" + Wohnort + "','" + Geschlecht + "'," + Alter + ");";
             Insert(query);
         }
     
