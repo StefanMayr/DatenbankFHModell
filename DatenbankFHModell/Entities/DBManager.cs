@@ -262,7 +262,7 @@ namespace DatenbankFHModell
         /// </summary>
         /// <param name="Fakultaetnummer"></param>
         /// <param name="NameFakultaet"></param>
-        public void PushFakultaet(int Personalnummer, int Fakultaetnummer, int Lehrveranstaltungsnummer)
+        public void PushFakultaet(int Fakultaetnummer, string NameFakultaet)
         {
             string query = "INSERT INTO Fakultät(Fakultätnummer,NameFakultät) VALUES (" + Fakultaetnummer + ",'" + NameFakultaet + "');";
             Insert(query);
@@ -273,7 +273,7 @@ namespace DatenbankFHModell
         /// </summary>
         /// <param name="Fakultaetnummer"></param>
         /// <param name="NameFakultaet"></param>
-        public void PushLehrendehatLehrveranstaltung(int Fakultaetnummer, string NameFakultaet)
+        public void PushLehrendehatLehrveranstaltung(int Personalnummer, int Fakultaetnummer, int Lehrveranstaltungsnummer)
         {
             string query = "INSERT INTO Lehrende_has_Lehrveranstaltung(Personalnummer,Fakultätnummer,Lehrveranstaltungsnummer) VALUES (" + Personalnummer + "," + Fakultaetnummer + "," + Lehrveranstaltungsnummer + ");";
             Insert(query);
