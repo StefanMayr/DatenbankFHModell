@@ -24,27 +24,27 @@
 
                         <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
                             <Label FontSize="14" FontFamily="Bahnschrift Condensed">Serveraddresse:</Label>
-                            <TextBox Width="250" x:Name="Hostname" Margin="10,0.5,0.5,0.5"></TextBox>
+                            <TextBox Width="250" Text="localhost" x:Name="Hostname" Margin="10,0.5,0.5,0.5"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
                             <Label FontSize="14"  FontFamily="Bahnschrift Condensed">Server Port:</Label>
-                            <TextBox Width="250" x:Name="txt_Server" Margin="30,0.5,0.5,0.5"></TextBox>
+                            <TextBox Width="250" Text="3306" x:Name="txt_Server" Margin="30,0.5,0.5,0.5"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
                             <Label FontSize="14"  FontFamily="Bahnschrift Condensed">Datenbankname:</Label>
-                            <TextBox Width="250" x:Name="txt_Databasename" Margin="8,0.5,0.5,0.5"></TextBox>
+                            <TextBox Width="250" Text="mydb" x:Name="txt_Databasename" Margin="8,0.5,0.5,0.5"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
                             <Label FontSize="14"  FontFamily="Bahnschrift Condensed">Benutzer:</Label>
-                            <TextBox Width="250" x:Name="txt_Benutzer" Margin="42,0.5,0.5,0.5"></TextBox>
+                            <TextBox Width="250" Text="root" x:Name="txt_Benutzer" Margin="42,0.5,0.5,0.5"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
                             <Label FontSize="14"  FontFamily="Bahnschrift Condensed">Passwort:</Label>
-                            <TextBox Width="250" x:Name="txt_password" Margin="39,0.5,0.5,0.5"></TextBox>
+                            <PasswordBox Width="250" x:Name="txt_password" Password="MYFUPDB22" Margin="39,0.5,0.5,0.5"></PasswordBox>
                         </StackPanel>
 
                         <Button Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" x:Name="btn_Connect" Click="btn_Connect_Click" Margin="0,0,5,5">Verbinden</Button>
@@ -59,11 +59,11 @@
                             <Button HorizontalAlignment="Right" Width="179" Margin="2">Lehrenden</Button>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="30">
-                            <Button HorizontalAlignment="Left" Width="179" Margin="2">Fakultät</Button>
+                            <Button HorizontalAlignment="Left" Width="179" x:Name="btn_Fakultät" Click="btn_Fakultät_Click" Margin="2">Fakultät</Button>
                             <Button HorizontalAlignment="Right" Width="179" Margin="2">Lehrveranstaltung</Button>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="30">
-                            <Button HorizontalAlignment="Left" Width="179" Margin="2">Gebäude</Button>
+                            <Button HorizontalAlignment="Left" x:Name="btn_Gebaeude" Click="btn_Gebaeude_Click" Width="179" Margin="2">Gebäude</Button>
                             <Button HorizontalAlignment="Right" Width="179" Margin="2">Raum</Button>
                         </StackPanel>
                     </StackPanel>

@@ -21,8 +21,10 @@ namespace DatenbankFHModell
             //User 
             MainWindow Mynewwindow= new MainWindow(TheDBMAnger, TheEvents);
             Student TheSTudent = new Student(TheDBMAnger, TheEvents);
+            Fakultät TheFakultät = new Fakultät(TheDBMAnger, TheEvents);
+            Gebaeude TheGebaeude = new Gebaeude(TheDBMAnger, TheEvents);
 
-            Presenter MyPresenter = new Presenter(TheEvents, TheDBMAnger, Mynewwindow, TheSTudent);
+            Presenter MyPresenter = new Presenter(TheEvents, TheDBMAnger, Mynewwindow, TheSTudent, TheFakultät, TheGebaeude);
             Mynewwindow.ShowDialog();
         }
     }

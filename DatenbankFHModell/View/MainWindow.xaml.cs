@@ -31,12 +31,22 @@ namespace DatenbankFHModell
 
         private void btn_Connect_Click(object sender, RoutedEventArgs e)
         {
-            TheDBManager.Connect(Hostname.Text, txt_Server.Text, txt_Databasename.Text, txt_Benutzer.Text, txt_password.Text);
+            TheDBManager.Connect(Hostname.Text, txt_Server.Text, txt_Databasename.Text, txt_Benutzer.Text, txt_password.Password);
         }
 
         private void btn_Student_Click(object sender, RoutedEventArgs e)
         {
             TheEvents.SendStartStudent(sender, e);
+        }
+
+        private void btn_Fakultät_Click(object sender, RoutedEventArgs e)
+        {
+            TheEvents.SendStartFakultät(sender, e);
+        }
+
+        private void btn_Gebaeude_Click(object sender, RoutedEventArgs e)
+        {
+            TheEvents.StartGebaeude(sender, e);
         }
     }
 }

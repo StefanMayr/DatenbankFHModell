@@ -19,19 +19,34 @@ namespace DatenbankFHModell
     /// </summary>
     public partial class Fakultät : Window
     {
-        public Fakultät()
+        DBManager TheDBManager;
+        Eventclass TheEvents;
+        public Fakultät(DBManager thedbmanager, Eventclass theEvents)
         {
             InitializeComponent();
+            TheDBManager = thedbmanager;
+            TheEvents = theEvents;
         }
 
         private void btn_Insert_Click(object sender, RoutedEventArgs e)
         {
-
+            if(int.TryParse(txt_FakNr.Text, out int id))
+            {
+                TheDBManager.PushFakultaet(Convert.ToInt32(txt_FakNr.Text), txt_FakName.Text);
+                ClearWindow();
+            }
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            ClearWindow();
+        }
 
+        private void ClearWindow()
+        {
+            txt_FakNr.Text = "";
+            txt_FakName.Text = "";
         }
     }
 }

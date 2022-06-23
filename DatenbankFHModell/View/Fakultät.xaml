@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatenbankFHModell"
         mc:Ignorable="d"
-        Title="Fakultät" Height="300" Width="200" WindowStyle="None">
+        Title="Fakultät" Height="170" Width="200" WindowStyle="None">
     <Grid>
-        <StackPanel>
+        <StackPanel Background="LightGray">
             <Label>Name der Fakultät:</Label>
             <TextBox x:Name="txt_FakName"></TextBox>
             <Label>Fakultätnummer</Label>

@@ -31,11 +31,22 @@ namespace DatenbankFHModell
         private void btn_Insert_Click(object sender, RoutedEventArgs e)
         {
             TheDBManager.PushStudent(Convert.ToInt32(txt_Matr.Text), txt_Name.Text, txt_Wohnort.Text, txt_Geschl.Text, Convert.ToInt32(txt_Alter.Text));
+            ClearWindow();
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            ClearWindow();
+        }
 
+        private void ClearWindow()
+        {
+            txt_Matr.Text = "";
+            txt_Name.Text = "";
+            txt_Wohnort.Text = "";
+            txt_Geschl.Text = "";
+            txt_Alter.Text = "";
         }
     }
 }

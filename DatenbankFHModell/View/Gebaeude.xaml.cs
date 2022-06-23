@@ -19,9 +19,35 @@ namespace DatenbankFHModell
     /// </summary>
     public partial class Gebaeude : Window
     {
-        public Gebaeude()
+        DBManager TheDBManager;
+        Eventclass TheEvents;
+
+        public Gebaeude(DBManager thedbmanager, Eventclass theEvents)
         {
             InitializeComponent();
+            TheDBManager = thedbmanager;
+            TheEvents = theEvents;
+        }
+
+        private void btn_Insert_Click(object sender, RoutedEventArgs e)
+        {
+            if(int.TryParse(txt_Gebaude.Text, out int id))
+            {
+                TheDBManager.PushGebaeude(Convert.ToInt32(txt_Gebaude.Text));
+            }
+            this.Hide();
+            ClearWindow();
+        }
+
+        private void btn_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            ClearWindow();
+        }
+
+        private void ClearWindow()
+        {
+            txt_Gebaude.Text = "";
         }
     }
 }
