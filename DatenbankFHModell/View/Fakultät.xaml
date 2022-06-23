@@ -1,23 +1,17 @@
-﻿<Window x:Class="DatenbankFHModell.Student"
+﻿<Window x:Class="DatenbankFHModell.Fakultät"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatenbankFHModell"
         mc:Ignorable="d"
-        Title="Student" Height="300" Width="200" WindowStyle="None">
-    <Grid Background="LightGray">
+        Title="Fakultät" Height="300" Width="200" WindowStyle="None">
+    <Grid>
         <StackPanel>
-            <Label>Name:</Label>
-            <TextBox x:Name="txt_Name"></TextBox>
-            <Label>Matrikelnummer</Label>
-            <TextBox x:Name="txt_Matr"></TextBox>
-            <Label>Wohnort</Label>
-            <TextBox x:Name="txt_Wohnort"></TextBox>
-            <Label>Geschlecht</Label>
-            <TextBox x:Name="txt_Geschl"></TextBox>
-            <Label>Alter</Label>
-            <TextBox x:Name="txt_Alter"></TextBox>
+            <Label>Name der Fakultät:</Label>
+            <TextBox x:Name="txt_FakName"></TextBox>
+            <Label>Fakultätnummer</Label>
+            <TextBox x:Name="txt_FakNr"></TextBox>
             <Button Height="25" Margin="0,10,0,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
             <Button Height="25" Margin="0,10,0,0" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>
         </StackPanel>

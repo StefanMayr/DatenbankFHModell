@@ -15,22 +15,18 @@ using System.Windows.Shapes;
 namespace DatenbankFHModell
 {
     /// <summary>
-    /// Interaktionslogik für Student.xaml
+    /// Interaktionslogik für Fakultät.xaml
     /// </summary>
-    public partial class Student : Window
+    public partial class Fakultät : Window
     {
-        DBManager TheDBManager;
-        Eventclass TheEvents;
-        public Student(DBManager thedbmanager, Eventclass theEvents)
+        public Fakultät()
         {
             InitializeComponent();
-            TheDBManager = thedbmanager;
-            TheEvents = theEvents;
         }
 
         private void btn_Insert_Click(object sender, RoutedEventArgs e)
         {
-            TheDBManager.PushStudent(Convert.ToInt32(txt_Matr.Text), txt_Name.Text, txt_Wohnort.Text, txt_Geschl.Text, Convert.ToInt32(txt_Alter.Text));
+
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
