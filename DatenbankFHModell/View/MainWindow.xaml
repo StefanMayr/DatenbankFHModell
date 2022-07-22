@@ -60,7 +60,7 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="30">
                             <Button HorizontalAlignment="Left" Width="179" x:Name="btn_Fakultät" Click="btn_Fakultät_Click" Margin="2">Fakultät</Button>
-                            <Button HorizontalAlignment="Right" Width="179" Margin="2">Lehrveranstaltung</Button>
+                            <Button HorizontalAlignment="Right" Width="179" Margin="2" x:Name="btn_Lehrveranstaltung" Click="btn_Lehrveranstaltung_Click">Lehrveranstaltung</Button>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="30">
                             <Button HorizontalAlignment="Left" x:Name="btn_Gebaeude" Click="btn_Gebaeude_Click" Width="179" Margin="2">Gebäude</Button>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Media;
 
 namespace DatenbankFHModell
 {
@@ -20,6 +21,7 @@ namespace DatenbankFHModell
     /// </summary>
     public partial class MainWindow : Window
     {
+        //private SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer();
         DBManager TheDBManager;
         Eventclass TheEvents;
         public MainWindow(DBManager thedbManager, Eventclass theevents)
@@ -52,6 +54,11 @@ namespace DatenbankFHModell
         private void btn_Lehrenden_Click(object sender, RoutedEventArgs e)
         {
             TheEvents.StartLehrenden(sender, e);
+        }
+
+        private void btn_Lehrveranstaltung_Click(object sender, RoutedEventArgs e)
+        {
+           // speechSynthesizer.SpeakAsync("yummy");
         }
     }
 }
