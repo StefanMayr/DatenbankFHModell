@@ -227,7 +227,7 @@ namespace DatenbankFHModell
         /// <param name="Fakultätnummer"></param>
         public void PushLehrender(int Personalnummer, string Name, string Wohnort, int Alter, string Ausbildung, string Geschlecht, int Fakultätnummer)
         {
-            string query = "INSERT INTO Student(Personalnummer,NameLehrender,WohnortLehrender,AlterLehrender,AusbildungLehrender, GeschlechtLehrender, Fakultät_Fakultätnummer) VALUES (" + Personalnummer + ",'" + Name + "','" + Wohnort + "'," + Alter + ",'" + Ausbildung + "','" + Geschlecht + "'," + Fakultätnummer + ");";
+            string query = "INSERT INTO lehrende(Personalnummer,NameLehrender,WohnortLehrender,AlterLehrender,AusbildungLehrender, GeschlechtLehrender, Fakultät_Fakultätnummer) VALUES (" + Personalnummer + ",'" + Name + "','" + Wohnort + "'," + Alter + ",'" + Ausbildung + "','" + Geschlecht + "'," + Fakultätnummer + ");";
             Insert(query);
         }
 

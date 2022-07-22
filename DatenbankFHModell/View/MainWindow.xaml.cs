@@ -48,5 +48,10 @@ namespace DatenbankFHModell
         {
             TheEvents.StartGebaeude(sender, e);
         }
+
+        private void btn_Lehrenden_Click(object sender, RoutedEventArgs e)
+        {
+            TheEvents.StartLehrenden(sender, e);
+        }
     }
 }
