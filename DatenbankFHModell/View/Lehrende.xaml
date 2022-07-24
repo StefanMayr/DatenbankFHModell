@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatenbankFHModell"
         mc:Ignorable="d"
-        Title="Lehrende" Height="420" Width="220">
+        Title="Lehrende" Height="420" MinHeight="420" Width="220">
     <Grid Background="LightGray">
         <StackPanel Margin="5">
             <Label>Name:</Label>
