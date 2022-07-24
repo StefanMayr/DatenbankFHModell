@@ -8,11 +8,9 @@
         Title="Lehrveranstaltung" Height="450" Width="300">
     <Grid Background="LightGray">
         <StackPanel Margin="5">
-            <Label>Name:</Label>
-            <TextBox x:Name="txt_Name"></TextBox>
-            <Label>Personalnummer</Label>
+            <Label>Lehrveranstaltungsnummer</Label>
             <TextBox x:Name="txt_Pers"></TextBox>
-            <Label>Wohnort</Label>
+            <Label>Lehrveranstaltungsname:</Label>
             <TextBox x:Name="txt_Wohnort"></TextBox>
             <Label>Geschlecht</Label>
             <TextBox x:Name="txt_Geschl"></TextBox>
