@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatenbankFHModell"
         mc:Ignorable="d"
-        Title="Lehrveranstaltung" Height="450" Width="300">
+        Title="Lehrveranstaltung" Height="380" MinHeight="300" Width="300">
     <Grid Background="LightGray">
         <StackPanel Margin="5">
             <Label>Lehrveranstaltungsnummer:</Label>
