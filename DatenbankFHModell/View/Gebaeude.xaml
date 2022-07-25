@@ -8,7 +8,7 @@
         Title="Gebaeude" Height="125" Width="200" WindowStyle="None">
     <Grid>
         <StackPanel Background="LightGray">
-            <Label>Gebäudenummer</Label>
+            <Label>Gebäudenummer:</Label>
             <TextBox x:Name="txt_Gebaude"></TextBox>
             <Button Height="25" Margin="0,10,0,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
             <Button Height="25" Margin="0,10,0,0" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>

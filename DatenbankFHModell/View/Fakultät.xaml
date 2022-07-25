@@ -10,7 +10,7 @@
         <StackPanel Background="LightGray">
             <Label>Name der Fakultät:</Label>
             <TextBox x:Name="txt_FakName"></TextBox>
-            <Label>Fakultätnummer</Label>
+            <Label>Fakultätnummer:</Label>
             <TextBox x:Name="txt_FakNr"></TextBox>
             <Button Height="25" Margin="0,10,0,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
             <Button Height="25" Margin="0,10,0,0" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>

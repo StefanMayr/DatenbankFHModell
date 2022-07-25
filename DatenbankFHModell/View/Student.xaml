@@ -10,13 +10,13 @@
         <StackPanel>
             <Label>Name:</Label>
             <TextBox x:Name="txt_Name"></TextBox>
-            <Label>Matrikelnummer</Label>
+            <Label>Matrikelnummer:</Label>
             <TextBox x:Name="txt_Matr"></TextBox>
-            <Label>Wohnort</Label>
+            <Label>Wohnort:</Label>
             <TextBox x:Name="txt_Wohnort"></TextBox>
-            <Label>Geschlecht</Label>
+            <Label>Geschlecht:</Label>
             <TextBox x:Name="txt_Geschl"></TextBox>
-            <Label>Alter</Label>
+            <Label>Alter:</Label>
             <TextBox x:Name="txt_Alter"></TextBox>
             <Button Height="25" Margin="0,10,0,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
             <Button Height="25" Margin="0,10,0,0" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>
