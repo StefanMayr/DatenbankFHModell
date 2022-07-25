@@ -19,9 +19,26 @@ namespace DatenbankFHModell
     /// </summary>
     public partial class Raum : Window
     {
-        public Raum()
+        DBManager TheDBManager;
+        Eventclass TheEvents;
+        public Raum(DBManager thedbmanager, Eventclass theEvents)
         {
             InitializeComponent();
+            TheDBManager = thedbmanager;
+            TheEvents = theEvents;
+        }
+
+        private void btn_Insert_Click(object sender, RoutedEventArgs e)
+        {
+            if (TheDBManager != null && txt_Raumnummer.Text != "" && txt_Gebäudenummer.Text != "" && int.TryParse(txt_Raumnummer.Text, out int result) && int.TryParse(txt_Gebäudenummer.Text, out int result2))
+            {
+                TheDBManager.PushRaum(Convert.ToInt32(txt_Raumnummer.Text), Convert.ToInt32(txt_Gebäudenummer.Text));
+            }
+        }
+
+        private void btn_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
         }
     }
 }

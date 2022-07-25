@@ -8,17 +8,13 @@ namespace DatenbankFHModell
 {
     public class Eventclass
     {
-        //Student
+        //Start 
         public event EventHandler StartStudentRequested;
-
-        //Fakultät
         public event EventHandler StartFakultätRequested;
-
-        //Gebaude
         public event EventHandler StartGebaeudeRequested;
-
-        //Lehrenden
         public event EventHandler StartLehrendenRequested;
+        public event EventHandler StartLehhrveranstaltungpageRequested;
+        public event EventHandler StartRaumpageRequested;
 
         public void SendStartStudent(object sender, EventArgs e)
         {
@@ -38,6 +34,16 @@ namespace DatenbankFHModell
         public void StartLehrenden(object sender, EventArgs e)
         {
             StartLehrendenRequested(sender, e);
+        }
+
+        public void StartLehrveranstaltung(object sender, EventArgs e)
+        {
+            StartLehhrveranstaltungpageRequested(sender, e);
+        }
+
+        public void StartRaum(object sender, EventArgs e)
+        {
+            StartRaumpageRequested(sender, e);
         }
     }
 }

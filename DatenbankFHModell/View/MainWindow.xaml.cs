@@ -59,6 +59,12 @@ namespace DatenbankFHModell
         private void btn_Lehrveranstaltung_Click(object sender, RoutedEventArgs e)
         {
            // speechSynthesizer.SpeakAsync("yummy");
+           TheEvents.StartLehrveranstaltung(sender, e);
+        }
+
+        private void btn_Raum_Click(object sender, RoutedEventArgs e)
+        {
+            TheEvents.StartRaum(sender, e);
         }
     }
 }

@@ -64,7 +64,7 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="30">
                             <Button HorizontalAlignment="Left" x:Name="btn_Gebaeude" Click="btn_Gebaeude_Click" Width="179" Margin="2">Gebäude</Button>
-                            <Button HorizontalAlignment="Right" Width="179" Margin="2">Raum</Button>
+                            <Button HorizontalAlignment="Right" x:Name="btn_Raum" Click="btn_Raum_Click" Width="179" Margin="2">Raum</Button>
                         </StackPanel>
                     </StackPanel>
                     

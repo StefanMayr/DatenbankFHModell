@@ -5,23 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatenbankFHModell"
         mc:Ignorable="d"
-        Title="Lehrveranstaltung" Height="380" MinHeight="300" Width="300">
+        Title="Lehrveranstaltung" Height="300" MinHeight="300" Width="300">
     <Grid Background="LightGray">
         <StackPanel Margin="5">
             <Label>Lehrveranstaltungsnummer:</Label>
-            <TextBox x:Name="txt_Pers"></TextBox>
+            <TextBox x:Name="txt_Lehrveranstaltungsnummer"></TextBox>
             <Label>Lehrveranstaltungsname:</Label>
-            <TextBox x:Name="txt_Wohnort"></TextBox>
-            <Label>Geschlecht:</Label>
-            <TextBox x:Name="txt_Geschl"></TextBox>
-            <Label>Alter:</Label>
-            <TextBox x:Name="txt_Alter"></TextBox>
-            <Label>Ausbildung:</Label>
-            <TextBox x:Name="txt_Ausbildung"></TextBox>
-            <Label>Fakultätnummer:</Label>
-            <TextBox x:Name="txt_Fakultät"></TextBox>
+            <TextBox x:Name="txt_Lehrveranstaltungsname"></TextBox>
+            <Label>Einheit:</Label>
+            <TextBox x:Name="txt_Einheit"></TextBox>
+            <Label>Datum:</Label>
+            <DatePicker x:Name="Dtp_Datetime"></DatePicker>
             <Button Height="25" Margin="0,10,0,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
-            <Button Height="25" Margin="0,10,0,0" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>
+            <Button Height="25" Margin="0,10,0,0" x:Name="btn_Close" Click="btn_Close_Click" >Schließen</Button>
         </StackPanel>
     </Grid>
 </Window>
