@@ -9,9 +9,9 @@
     <Grid Background="LightGray">
         <StackPanel Margin="5">
             <Label>Lehrveranstaltungsnummer:</Label>
-            <TextBox x:Name="txt_Pers"></TextBox>
+            <TextBox x:Name="txt_LVAnr"></TextBox>
             <Label>Lehrveranstaltungsname:</Label>
-            <TextBox x:Name="txt_Wohnort"></TextBox>
+            <TextBox x:Name="txt_LVAname"></TextBox>
             <Label>Geschlecht:</Label>
             <TextBox x:Name="txt_Geschl"></TextBox>
             <Label>Alter:</Label>
