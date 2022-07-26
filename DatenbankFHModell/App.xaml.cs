@@ -24,8 +24,9 @@ namespace DatenbankFHModell
             Fakultät TheFakultät = new Fakultät(TheDBMAnger, TheEvents);
             Gebaeude TheGebaeude = new Gebaeude(TheDBMAnger, TheEvents);
             Lehrendeclass TheLehrendenclass = new Lehrendeclass(TheDBMAnger, TheEvents);
+            Lehrveranstaltungsclass TheLehrveranstaltungsclass = new Lehrveranstaltungsclass(TheDBMAnger, TheEvents);
 
-            Presenter MyPresenter = new Presenter(TheEvents, TheDBMAnger, Mynewwindow, TheSTudent, TheFakultät, TheGebaeude, TheLehrendenclass);
+            Presenter MyPresenter = new Presenter(TheEvents, TheDBMAnger, Mynewwindow, TheSTudent, TheFakultät, TheGebaeude, TheLehrendenclass, TheLehrveranstaltungsclass);
             Mynewwindow.ShowDialog();
         }
     }

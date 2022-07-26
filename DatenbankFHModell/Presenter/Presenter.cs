@@ -16,14 +16,16 @@ namespace DatenbankFHModell
         Fakultät TheFakultätPage;
         Gebaeude TheGebaeudePage;
         Lehrendeclass TheLehrendenPage;
+        Lehrveranstaltungsclass TheLehrveranstaltungPage;
 
-        public Presenter(Eventclass theevents, DBManager thedbmanager, MainWindow themainwindow, Student thestudentpage, Fakultät thefakultät, Gebaeude thegebaeudepage, Lehrendeclass thelehrendenpage)
+        public Presenter(Eventclass theevents, DBManager thedbmanager, MainWindow themainwindow, Student thestudentpage, Fakultät thefakultät, Gebaeude thegebaeudepage, Lehrendeclass thelehrendenpage, Lehrveranstaltungsclass thelehrveranstaltungpage)
         {
             TheDBManager = thedbmanager;
             TheStudentPAge = thestudentpage;
             TheFakultätPage = thefakultät;
             TheGebaeudePage = thegebaeudepage;
             TheLehrendenPage = thelehrendenpage;
+            TheLehrveranstaltungPage = thelehrveranstaltungpage;
 
             TheEvent = theevents;
             MainWindow = themainwindow;
@@ -50,6 +52,10 @@ namespace DatenbankFHModell
         }
 
         private void StartLehrenden(object sender, EventArgs e)
+        {
+            TheLehrendenPage.ShowDialog();
+        }
+        private void StartLehrveranstaltung(object sender, EventArgs e)
         {
             TheLehrendenPage.ShowDialog();
         }

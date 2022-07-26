@@ -20,6 +20,9 @@ namespace DatenbankFHModell
         //Lehrenden
         public event EventHandler StartLehrendenRequested;
 
+        //Lehrveranstaltung
+        public event EventHandler StartLehrveranstaltungRequested;
+
         public void SendStartStudent(object sender, EventArgs e)
         {
             StartStudentRequested(sender, e);
@@ -38,6 +41,11 @@ namespace DatenbankFHModell
         public void StartLehrenden(object sender, EventArgs e)
         {
             StartLehrendenRequested(sender, e);
+        }
+
+        public void StartLehrveranstaltung(object sender, EventArgs e)
+        {
+            StartLehrveranstaltungRequested(sender, e);
         }
     }
 }
