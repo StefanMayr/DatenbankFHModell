@@ -19,12 +19,27 @@ namespace DatenbankFHModell
     /// </summary>
     public partial class Lehrveranstaltungsclass : Window
     {
+        DBManager TheDbManager;
+        Eventclass TheEvents;
+        public Lehrveranstaltungsclass(DBManager thedbmanager, Eventclass theevents)
         DBManager TheDBManager;
         Eventclass TheEventClass;
 
         public Lehrveranstaltungsclass(DBManager thedbmanager, Eventclass theeventclass)
         {
             InitializeComponent();
+            TheDbManager = thedbmanager;
+            TheEvents = theevents;
+        }
+
+        private void btn_Insert_Click(object sender, RoutedEventArgs e)
+        {
+            TheDbManager.PushLehrveranstaltung(Convert.ToInt32(txt_Lehrveranstaltungsnummer.Text), txt_Lehrveranstaltungsname.Text, Convert.ToDateTime(Dtp_Datetime.Text), Convert.ToInt32(txt_Einheit.Text));
+        }
+
+        private void btn_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
             TheDBManager =thedbmanager;
             TheEventClass=theeventclass;
         }

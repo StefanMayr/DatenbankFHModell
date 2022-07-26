@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="View\t0mqniqg.1jn~" />
+  </ItemGroup>
+
+  <ItemGroup>
     <COMReference Include="SpeechLib">
       <WrapperTool>tlbimp</WrapperTool>
       <VersionMinor>4</VersionMinor>

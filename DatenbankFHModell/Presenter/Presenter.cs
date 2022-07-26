@@ -16,16 +16,18 @@ namespace DatenbankFHModell
         Fakultät TheFakultätPage;
         Gebaeude TheGebaeudePage;
         Lehrendeclass TheLehrendenPage;
-        Lehrveranstaltungsclass TheLehrveranstaltungPage;
+        Lehrveranstaltungsclass TheLehrveranstaltungsclassPage;
+        Raum TheRaumpage;
 
-        public Presenter(Eventclass theevents, DBManager thedbmanager, MainWindow themainwindow, Student thestudentpage, Fakultät thefakultät, Gebaeude thegebaeudepage, Lehrendeclass thelehrendenpage, Lehrveranstaltungsclass thelehrveranstaltungpage)
+        public Presenter(Eventclass theevents, DBManager thedbmanager, MainWindow themainwindow, Student thestudentpage, Fakultät thefakultät, Gebaeude thegebaeudepage, Lehrendeclass thelehrendenpage, Lehrveranstaltungsclass thelehrveranstaltungspage, Raum theraumpage)
         {
             TheDBManager = thedbmanager;
             TheStudentPAge = thestudentpage;
             TheFakultätPage = thefakultät;
             TheGebaeudePage = thegebaeudepage;
             TheLehrendenPage = thelehrendenpage;
-            TheLehrveranstaltungPage = thelehrveranstaltungpage;
+            TheLehrveranstaltungsclassPage = thelehrveranstaltungspage;
+            TheRaumpage = theraumpage;
 
             TheEvent = theevents;
             MainWindow = themainwindow;
@@ -34,6 +36,8 @@ namespace DatenbankFHModell
             TheEvent.StartFakultätRequested += StartFakultät;
             TheEvent.StartGebaeudeRequested += StartGebaeude;
             TheEvent.StartLehrendenRequested += StartLehrenden;
+            TheEvent.StartLehhrveranstaltungpageRequested += StartLehrveranstaltung;
+            TheEvent.StartRaumpageRequested += StartRaumpage;
         }
 
         private void StartStudentPage(object sender, EventArgs e)
@@ -55,9 +59,15 @@ namespace DatenbankFHModell
         {
             TheLehrendenPage.ShowDialog();
         }
+
         private void StartLehrveranstaltung(object sender, EventArgs e)
         {
-            TheLehrendenPage.ShowDialog();
+            TheLehrveranstaltungsclassPage.ShowDialog();
+        }
+
+        private void StartRaumpage(object sender, EventArgs e)
+        {
+            TheRaumpage.ShowDialog();
         }
     }
 }
