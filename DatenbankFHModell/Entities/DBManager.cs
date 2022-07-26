@@ -313,6 +313,43 @@ namespace DatenbankFHModell
             Insert(query);
         }
 
+        /// <summary>
+        /// Pull Fakultaet Data from DB
+        /// </summary>
+        /// <returns></returns>
+        public List<Fakultaetentity> PullFakultaet()
+        {
+            List<Fakultaetentity> list = new List<Fakultaetentity>();  
+            
+            if (this.OpenConnection() == true)
+            {
+                string query = "Select * from mydb.fakultät";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
 
+                int FakultaetNr = 0;
+                string NameFakultaet = "";
+
+                while (dataReader.Read())
+                {
+                    if (!dataReader.IsDBNull(0))
+                    {
+                        FakultaetNr = dataReader.GetInt16(0);
+                    }
+                    if (!dataReader.IsDBNull(1))
+                    {
+                        NameFakultaet = dataReader.GetString(1);
+                    }
+                    list.Add(new Fakultaetentity(FakultaetNr, NameFakultaet));
+                }
+
+            }
+            //close Connection
+            this.CloseConnection();
+
+            return list;
+        }
     }
 }
