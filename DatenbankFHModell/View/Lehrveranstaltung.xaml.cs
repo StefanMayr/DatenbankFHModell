@@ -21,7 +21,6 @@ namespace DatenbankFHModell
     {
         DBManager TheDbManager;
         Eventclass TheEvents;
-        public Lehrveranstaltungsclass(DBManager thedbmanager, Eventclass theevents)
         DBManager TheDBManager;
         Eventclass TheEventClass;
 
@@ -29,7 +28,7 @@ namespace DatenbankFHModell
         {
             InitializeComponent();
             TheDbManager = thedbmanager;
-            TheEvents = theevents;
+            TheEvents = theeventclass;
         }
 
         private void btn_Insert_Click(object sender, RoutedEventArgs e)
@@ -40,18 +39,6 @@ namespace DatenbankFHModell
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            TheDBManager =thedbmanager;
-            TheEventClass=theeventclass;
-        }
-
-        private void btn_Insert_Click(object sender, RoutedEventArgs e)
-        {
-            TheDBManager.PushLehrveranstaltung(Convert.ToInt32(txt_Pers.Text), txt_Name.Text, txt_Wohnort.Text, Convert.ToInt32(txt_Alter.Text), txt_Ausbildung.Text, txt_Geschl.Text, Convert.ToInt32(txt_Fakultät.Text));
-        }
-
-        private void btn_Close_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
         }
     }
 

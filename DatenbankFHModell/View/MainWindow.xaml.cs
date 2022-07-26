@@ -29,6 +29,8 @@ namespace DatenbankFHModell
             InitializeComponent();
             TheDBManager = thedbManager;
             TheEvents = theevents;
+
+            TheEvents.SendFakultaetDataRequested += InsertFakultaetData;
         }
 
         private void btn_Connect_Click(object sender, RoutedEventArgs e)
@@ -65,6 +67,31 @@ namespace DatenbankFHModell
         private void btn_Raum_Click(object sender, RoutedEventArgs e)
         {
             TheEvents.StartRaum(sender, e);
+        }
+
+        private void btn_Fakultät_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TheEvents.DownloadFakultaetData(sender, e);
+        }
+
+        private void InsertFakultaetData(object sender, List<Fakultaetentity> list)
+        {
+            Grid_MainDataGrid.Columns.Clear();
+            AddColumnatRuntime("Fakultaetnummer", "Fakultaetnummer");
+            AddColumnatRuntime("Fakultaetname", "Fakultaetname");
+            foreach(Fakultaetentity item in list)
+            {
+                Grid_MainDataGrid.Items.Add(item);
+            }
+        }
+
+        private void AddColumnatRuntime(string _header, string _binding)
+        {
+            Grid_MainDataGrid.Columns.Add(new DataGridTextColumn()
+            {
+                Header = _header,
+                Binding = new Binding(_binding)
+            });
         }
     }
 }

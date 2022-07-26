@@ -30,7 +30,7 @@ namespace DatenbankFHModell
 
         private void btn_Insert_Click(object sender, RoutedEventArgs e)
         {
-           TheDBManager.PushLehrender(Convert.ToInt32(txt_LVAnr.Text), txt_LVAnr.Text, txt_Fakultät);
+           TheDBManager.PushLehrender(Convert.ToInt32(txt_Pers.Text), txt_Name.Text, txt_Wohnort.Text, Convert.ToInt32(txt_Alter.Text), txt_Ausbildung.Text, txt_Geschl.Text ,Convert.ToInt32(txt_Fakultät));
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)

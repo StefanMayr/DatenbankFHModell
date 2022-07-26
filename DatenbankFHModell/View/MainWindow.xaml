@@ -15,6 +15,7 @@
         <Border Grid.Column="0" Margin="10,20,20,20" BorderBrush="Black" BorderThickness="1" CornerRadius="5" Background="White">
             <DataGrid x:Name="Grid_MainDataGrid">
                 <DataGrid.Columns>
+                    
                 </DataGrid.Columns>
             </DataGrid>
         </Border>
@@ -62,7 +63,7 @@
                             <Button HorizontalAlignment="Right" Width="179" Margin="2" x:Name="btn_Lehrenden" Click="btn_Lehrenden_Click">Lehrenden</Button>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="30">
-                            <Button HorizontalAlignment="Left" Width="179" x:Name="btn_Fakultät" Click="btn_Fakultät_Click" Margin="2">Fakultät</Button>
+                            <Button HorizontalAlignment="Left" Width="179" x:Name="btn_Fakultät" MouseRightButtonDown="btn_Fakultät_MouseRightButtonDown" Click="btn_Fakultät_Click" Margin="2">Fakultät</Button>
                             <Button HorizontalAlignment="Right" Width="179" Margin="2" x:Name="btn_Lehrveranstaltung" Click="btn_Lehrveranstaltung_Click">Lehrveranstaltung</Button>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="30">

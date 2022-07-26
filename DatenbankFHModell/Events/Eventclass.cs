@@ -8,16 +8,18 @@ namespace DatenbankFHModell
 {
     public class Eventclass
     {
-        //Start 
+        //Start Pages
         public event EventHandler StartStudentRequested;
         public event EventHandler StartFakultätRequested;
         public event EventHandler StartGebaeudeRequested;
         public event EventHandler StartLehrendenRequested;
         public event EventHandler StartLehhrveranstaltungpageRequested;
         public event EventHandler StartRaumpageRequested;
-
-        //Lehrveranstaltung
         public event EventHandler StartLehrveranstaltungRequested;
+
+        //Download Data
+        public event EventHandler DownloadFakultaetDataRequested;
+        public event EventHandler<List<Fakultaetentity>> SendFakultaetDataRequested;
 
         public void SendStartStudent(object sender, EventArgs e)
         {
@@ -47,6 +49,16 @@ namespace DatenbankFHModell
         public void StartRaum(object sender, EventArgs e)
         {
             StartRaumpageRequested(sender, e);
+        }
+
+        public void DownloadFakultaetData(object sender, EventArgs e)
+        {
+            DownloadFakultaetDataRequested(sender, e);
+        }
+
+        public void SendFakultaetData(object sender, List<Fakultaetentity> List)
+        {
+            SendFakultaetDataRequested(sender, List);
         }
     }
 }
