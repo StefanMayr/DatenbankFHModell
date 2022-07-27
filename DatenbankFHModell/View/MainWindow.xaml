@@ -59,16 +59,16 @@
                     <StackPanel>
                         <Label FontSize="14">Daten hinzufügen:</Label>
                         <StackPanel Orientation="Horizontal" Height="30">
-                            <Button HorizontalAlignment="Left" x:Name="btn_Student" Click="btn_Student_Click" Width="179" Margin="2">Student</Button>
-                            <Button HorizontalAlignment="Right" Width="179" Margin="2" x:Name="btn_Lehrenden" Click="btn_Lehrenden_Click">Lehrenden</Button>
+                            <Button HorizontalAlignment="Left" x:Name="btn_Student" Click="btn_Student_Click" MouseRightButtonDown="btn_Student_MouseRightButtonDown" Width="179" Margin="2">Student</Button>
+                            <Button HorizontalAlignment="Right" Width="179" Margin="2" x:Name="btn_Lehrenden" MouseRightButtonDown="btn_Lehrende_MouseRightButtonDown" Click="btn_Lehrenden_Click">Lehrenden</Button>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="30">
                             <Button HorizontalAlignment="Left" Width="179" x:Name="btn_Fakultät" MouseRightButtonDown="btn_Fakultät_MouseRightButtonDown" Click="btn_Fakultät_Click" Margin="2">Fakultät</Button>
-                            <Button HorizontalAlignment="Right" Width="179" Margin="2" x:Name="btn_Lehrveranstaltung" Click="btn_Lehrveranstaltung_Click">Lehrveranstaltung</Button>
+                            <Button HorizontalAlignment="Right" Width="179" Margin="2" x:Name="btn_Lehrveranstaltung" MouseRightButtonDown="btn_Lehrveranstaltung_MouseRightButtonDown" Click="btn_Lehrveranstaltung_Click">Lehrveranstaltung</Button>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="30">
                             <Button HorizontalAlignment="Left" x:Name="btn_Gebaeude" Click="btn_Gebaeude_Click" MouseRightButtonDown="btn_Gebaeude_MouseRightButtonDown" Width="179" Margin="2">Gebäude</Button>
-                            <Button HorizontalAlignment="Right" x:Name="btn_Raum" Click="btn_Raum_Click" Width="179" Margin="2">Raum</Button>
+                            <Button HorizontalAlignment="Right" x:Name="btn_Raum" Click="btn_Raum_Click" MouseRightButtonDown="btn_Raum_MouseRightButtonDown" Width="179" Margin="2">Raum</Button>
                         </StackPanel>
                     </StackPanel>
                     

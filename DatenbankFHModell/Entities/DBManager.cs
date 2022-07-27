@@ -460,7 +460,7 @@ namespace DatenbankFHModell
 
             if (this.OpenConnection() == true)
             {
-                string query = "Select * from mydb.lehrende";
+                string query = "Select * from mydb.lehrende_has_lehrveranstaltung";
                 //Create Command
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 //Create a data reader and Execute the command
@@ -484,7 +484,7 @@ namespace DatenbankFHModell
                     {
                         Lehrende_Lehrveranstaltungsnummer = dataReader.GetInt16(2);
                     }
-                    list.Add(new Lehrende_has_Lehrveranstaltungentity(PersonalNr, Name, Wohnort, Alter, Ausbildung, Geschlecht, FakultaetNr));
+                    list.Add(new Lehrende_has_Lehrveranstaltungentity(Lehrende_PersonalNr, Lehrende_FakultaetNr, Lehrende_Lehrveranstaltungsnummer));
                 }
 
             }

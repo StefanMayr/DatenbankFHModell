@@ -32,6 +32,10 @@ namespace DatenbankFHModell
 
             TheEvents.SendFakultaetDataRequested += InsertFakultaetData;
             TheEvents.SendGebaeudeDataRequested += InsertGebaeudeData;
+            TheEvents.SendStudentDataRequested += InsertStudentData;
+            TheEvents.SendLehrendenDataRequested += InsertLehrendeData;
+            TheEvents.SendLehrveranstaltungDataRequested += InsertLehrveranstaltungsData;
+            TheEvents.SendRaumDataRequested += InsertRaumData;
         }
 
         private void btn_Connect_Click(object sender, RoutedEventArgs e)
@@ -80,6 +84,26 @@ namespace DatenbankFHModell
             TheEvents.DownloadGebaeudeData(sender, e);
         }
 
+        private void btn_Student_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TheEvents.DownloadStudentData(sender, e);
+        }
+
+        private void btn_Lehrende_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TheEvents.DownloadLehrendeData(sender, e);
+        }
+
+        private void btn_Lehrveranstaltung_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TheEvents.DownloadLehrveranstaltungData(sender, e);
+        }
+
+        private void btn_Raum_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TheEvents.DownloadRaumData(sender, e);
+        }
+
         private void InsertFakultaetData(object sender, List<Fakultaetentity> list)
         {
             Grid_MainDataGrid.Columns.Clear();
@@ -96,6 +120,60 @@ namespace DatenbankFHModell
             Grid_MainDataGrid.Columns.Clear();
             AddColumnatRuntime("Gebaeudenummer", "Gebaeudenummer");
             foreach (Gebaeudeentity item in list)
+            {
+                Grid_MainDataGrid.Items.Add(item);
+            }
+        }
+
+        private void InsertStudentData(object sender, List<Studententity> list)
+        {
+            Grid_MainDataGrid.Columns.Clear();
+            AddColumnatRuntime("Matrikelnummer", "Matrikelnummer");
+            AddColumnatRuntime("Name", "Studentname");
+            AddColumnatRuntime("Wohnort", "StudentWohnort");
+            AddColumnatRuntime("Geschlecht", "StudentGeschlecht");
+            AddColumnatRuntime("Alter", "StudentAlter");
+            foreach(Studententity item in list)
+            {
+                Grid_MainDataGrid.Items.Add(item);
+            }
+        }
+
+        private void InsertLehrendeData(object sender, List<Lehrendeentity> list)
+        {
+            Grid_MainDataGrid.Columns.Clear();
+            AddColumnatRuntime("Personalnummer", "Personalnummer");
+            AddColumnatRuntime("Name", "Name");
+            AddColumnatRuntime("Wohnort", "Wohnort");
+            AddColumnatRuntime("Alter", "Alter");
+            AddColumnatRuntime("Ausbildung", "Ausbuldung");
+            AddColumnatRuntime("Geschlecht", "Geschlecht");
+            AddColumnatRuntime("Fakultät", "Fakultät");
+            foreach(Lehrendeentity item in list)
+            {
+                Grid_MainDataGrid.Items.Add(item);
+            }
+        }
+
+        private void InsertLehrveranstaltungsData(object sender, List<Lehrveranstaltungentity> list)
+        {
+            Grid_MainDataGrid.Columns.Clear();
+            AddColumnatRuntime("Lehrveranstaltungsnummer", "Lehrveranstaltungsnummer");
+            AddColumnatRuntime("Lehrveranstaltungsname", "NameLehrveranstaltung");
+            AddColumnatRuntime("Datum", "DatumLehrveranstaltung");
+            AddColumnatRuntime("Einheit", "Einheit");
+            foreach (Lehrveranstaltungentity item in list)
+            {
+                Grid_MainDataGrid.Items.Add(item);
+            }
+        }
+
+        private void InsertRaumData(object sender, List<Raumentity> list)
+        {
+            Grid_MainDataGrid.Columns.Clear();
+            AddColumnatRuntime("Raumnummer", "Raumnummer");
+            AddColumnatRuntime("Gebäudenummer", "Gebaeude_Gebaeudenummer");
+            foreach (Raumentity item in list)
             {
                 Grid_MainDataGrid.Items.Add(item);
             }

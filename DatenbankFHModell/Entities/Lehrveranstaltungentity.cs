@@ -16,7 +16,7 @@ namespace DatenbankFHModell
         {
             Lehrveranstaltungsnummer = _lehrveranstaltungsnummer;
             Lehrveranstaltungsname = _lehrveranstaltungsname;
-            Lehrveranstaltungsdate = _lehrveranstaltungsdate
+            Lehrveranstaltungsdate = _lehrveranstaltungsdate;
             Einheit = _einheit;
         }
     }
