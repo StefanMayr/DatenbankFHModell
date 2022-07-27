@@ -9,9 +9,9 @@ namespace DatenbankFHModell
     public class Gebaeudeentity
     {
         public int Gebaeudenummer { get; set; }
-        public Gebaeudeentity()
+        public Gebaeudeentity(int _gebaeudenummer)
         {
-
+            Gebaeudenummer = _gebaeudenummer;
         }
     }
 }

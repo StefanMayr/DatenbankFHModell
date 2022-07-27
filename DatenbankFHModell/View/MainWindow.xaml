@@ -67,7 +67,7 @@
                             <Button HorizontalAlignment="Right" Width="179" Margin="2" x:Name="btn_Lehrveranstaltung" Click="btn_Lehrveranstaltung_Click">Lehrveranstaltung</Button>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="30">
-                            <Button HorizontalAlignment="Left" x:Name="btn_Gebaeude" Click="btn_Gebaeude_Click" Width="179" Margin="2">Gebäude</Button>
+                            <Button HorizontalAlignment="Left" x:Name="btn_Gebaeude" Click="btn_Gebaeude_Click" MouseRightButtonDown="btn_Gebaeude_MouseRightButtonDown" Width="179" Margin="2">Gebäude</Button>
                             <Button HorizontalAlignment="Right" x:Name="btn_Raum" Click="btn_Raum_Click" Width="179" Margin="2">Raum</Button>
                         </StackPanel>
                     </StackPanel>

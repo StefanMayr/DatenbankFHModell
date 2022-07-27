@@ -39,6 +39,7 @@ namespace DatenbankFHModell
             TheEvent.StartLehhrveranstaltungpageRequested += StartLehrveranstaltung;
             TheEvent.StartRaumpageRequested += StartRaumpage;
             TheEvent.DownloadFakultaetDataRequested += DownloadFakultaetData;
+            TheEvent.DownloadGebaeudeDataRequested += DownloadGebaeudeData;
         }
 
         private void StartStudentPage(object sender, EventArgs e)
@@ -75,6 +76,12 @@ namespace DatenbankFHModell
         {
             List<Fakultaetentity> list = TheDBManager.PullFakultaet();
             TheEvent.SendFakultaetData(sender, list);
+        }
+
+        private void DownloadGebaeudeData(object sender, EventArgs e)
+        {
+            List<Gebaeudeentity> list = TheDBManager.PullGebaeude();
+            TheEvent.SendGebaeudeData(sender, list);
         }
     }
 }

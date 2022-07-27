@@ -10,9 +10,10 @@ namespace DatenbankFHModell
     {
         public int Raumnummer { get; set; }
         public int Gebaeudenummer { get; set; }
-        public Raumentity()
+        public Raumentity(int _raumnummer, int _gebaeudenummer)
         {
-
+            Raumnummer = _raumnummer;
+            Gebaeudenummer = _gebaeudenummer;
         }
     }
 }

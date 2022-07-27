@@ -351,5 +351,372 @@ namespace DatenbankFHModell
 
             return list;
         }
+
+        /// <summary>
+        /// Pull Gebaeude Data from DB
+        /// </summary>
+        /// <returns></returns>
+        public List<Gebaeudeentity> PullGebaeude()
+        {
+            List<Gebaeudeentity> list = new List<Gebaeudeentity>();
+
+            if (this.OpenConnection() == true)
+            {
+                string query = "Select * from mydb.gebaeude";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int GebaeudeNr = 0;
+
+                while (dataReader.Read())
+                {
+                    if (!dataReader.IsDBNull(0))
+                    {
+                        GebaeudeNr = dataReader.GetInt16(0);
+                    }
+                    list.Add(new Gebaeudeentity(GebaeudeNr));
+                }
+
+            }
+            //close Connection
+            this.CloseConnection();
+
+            return list;
+        }
+
+        /// <summary>
+        /// Pull Lehrende Data from DB
+        /// </summary>
+        /// <returns></returns>
+        public List<Lehrendeentity> PullLehrende()
+        {
+            List<Lehrendeentity> list = new List<Lehrendeentity>();
+
+            if (this.OpenConnection() == true)
+            {
+                string query = "Select * from mydb.lehrende";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int PersonalNr = 0;
+                string Name = "";
+                string Wohnort = "";
+                int Alter = 0;
+                string Ausbildung = "";
+                string Geschlecht = "";
+                int FakultaetNr = 0;
+
+                while (dataReader.Read())
+                {
+                    if (!dataReader.IsDBNull(0))
+                    {
+                        PersonalNr = dataReader.GetInt16(0);
+                    }
+                    if (!dataReader.IsDBNull(1))
+                    {
+                        Name = dataReader.GetString(1);
+                    }
+                    if (!dataReader.IsDBNull(2))
+                    {
+                        Wohnort = dataReader.GetString(2);
+                    }
+                    if (!dataReader.IsDBNull(3))
+                    {
+                        Alter = dataReader.GetInt16(3);
+                    }
+                    if (!dataReader.IsDBNull(4))
+                    {
+                        Ausbildung = dataReader.GetString(4);
+                    }
+                    if (!dataReader.IsDBNull(5))
+                    {
+                        Geschlecht = dataReader.GetString(5);
+                    }
+                    if (!dataReader.IsDBNull(6))
+                    {
+                        FakultaetNr = dataReader.GetInt16(6);
+                    }
+                    list.Add(new Lehrendeentity(PersonalNr, Name, Wohnort, Alter, Ausbildung, Geschlecht, FakultaetNr));
+                }
+
+            }
+            //close Connection
+            this.CloseConnection();
+
+            return list;
+        }
+
+        /// <summary>
+        /// Pull ZOT Lehrende_has_Lehrveranstaltungentity Data from DB
+        /// </summary>
+        /// <returns></returns>
+        public List<Lehrende_has_Lehrveranstaltungentity> PullLehrende_has_Lehrveranstaltugn()
+        {
+            List<Lehrende_has_Lehrveranstaltungentity> list = new List<Lehrende_has_Lehrveranstaltungentity>();
+
+            if (this.OpenConnection() == true)
+            {
+                string query = "Select * from mydb.lehrende";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int Lehrende_PersonalNr = 0;
+                int Lehrende_FakultaetNr = 0;
+                int Lehrende_Lehrveranstaltungsnummer = 0;
+
+                while (dataReader.Read())
+                {
+                    if (!dataReader.IsDBNull(0))
+                    {
+                        Lehrende_PersonalNr = dataReader.GetInt16(0);
+                    }
+                    if (!dataReader.IsDBNull(1))
+                    {
+                        Lehrende_FakultaetNr = dataReader.GetInt16(1);
+                    }
+                    if (!dataReader.IsDBNull(2))
+                    {
+                        Lehrende_Lehrveranstaltungsnummer = dataReader.GetInt16(2);
+                    }
+                    list.Add(new Lehrende_has_Lehrveranstaltungentity(PersonalNr, Name, Wohnort, Alter, Ausbildung, Geschlecht, FakultaetNr));
+                }
+
+            }
+            //close Connection
+            this.CloseConnection();
+
+            return list;
+        }
+
+        /// <summary>
+        /// Pull Lehrveranstaltung from DB
+        /// </summary>
+        /// <returns></returns>
+        public List<Lehrveranstaltungentity> PullLehrveranstaltung()
+        {
+            List<Lehrveranstaltungentity> list = new List<Lehrveranstaltungentity>();
+
+            if (this.OpenConnection() == true)
+            {
+                string query = "Select * from mydb.lehrveranstaltung";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int LehrveranstaltungsNr = 0;
+                string Lehrveranstaltungsnummer = "";
+                DateTime Lehrveranstaltungdate = DateTime.Now;
+                int Einheit = 0;
+
+                while (dataReader.Read())
+                {
+                    if (!dataReader.IsDBNull(0))
+                    {
+                        LehrveranstaltungsNr = dataReader.GetInt16(0);
+                    }
+                    if (!dataReader.IsDBNull(1))
+                    {
+                        Lehrveranstaltungsnummer = dataReader.GetString(1);
+                    }
+                    if (!dataReader.IsDBNull(2))
+                    {
+                        Lehrveranstaltungdate = dataReader.GetDateTime(2);
+                    }
+                    if (!dataReader.IsDBNull(3))
+                    {
+                        Einheit = dataReader.GetInt16(3);
+                    }
+                    list.Add(new Lehrveranstaltungentity(LehrveranstaltungsNr, Lehrveranstaltungsnummer, Lehrveranstaltungdate, Einheit));
+                }
+
+            }
+            //close Connection
+            this.CloseConnection();
+
+            return list;
+        }
+
+        /// <summary>
+        /// Pull ZOT Lehrveranstaltung_has_Raum Data from DB
+        /// </summary>
+        /// <returns></returns>
+        public List<Lehrveranstaltung_has_raumentity> PullLehrveranstaltung_has_Raum()
+        {
+            List<Lehrveranstaltung_has_raumentity> list = new List<Lehrveranstaltung_has_raumentity>();
+
+            if (this.OpenConnection() == true)
+            {
+                string query = "Select * from mydb.lehrveranstaltung_has_raum";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int LehrveranstaltungsNr = 0;
+                int RaumNr = 0;
+                int GebaeudeNr = 0;
+
+                while (dataReader.Read())
+                {
+                    if (!dataReader.IsDBNull(0))
+                    {
+                        LehrveranstaltungsNr = dataReader.GetInt16(0);
+                    }
+                    if (!dataReader.IsDBNull(1))
+                    {
+                        RaumNr = dataReader.GetInt16(1);
+                    }
+                    if (!dataReader.IsDBNull(2))
+                    {
+                        GebaeudeNr = dataReader.GetInt16(2);
+                    }
+                    list.Add(new Lehrveranstaltung_has_raumentity(LehrveranstaltungsNr, RaumNr, GebaeudeNr));
+                }
+
+            }
+            //close Connection
+            this.CloseConnection();
+
+            return list;
+        }
+
+        /// <summary>
+        /// Pull Raum Data from DB
+        /// </summary>
+        /// <returns></returns>
+        public List<Raumentity> PullRaum()
+        {
+            List<Raumentity> list = new List<Raumentity>();
+
+            if (this.OpenConnection() == true)
+            {
+                string query = "Select * from mydb.raum";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int RaumNr = 0;
+                int GebaeudeNr = 0;
+
+                while (dataReader.Read())
+                {
+                    if (!dataReader.IsDBNull(0))
+                    {
+                        RaumNr = dataReader.GetInt16(0);
+                    }
+                    if (!dataReader.IsDBNull(1))
+                    {
+                        GebaeudeNr = dataReader.GetInt16(1);
+                    }
+                    list.Add(new Raumentity(RaumNr, GebaeudeNr));
+                }
+
+            }
+            //close Connection
+            this.CloseConnection();
+
+            return list;
+        }
+
+        /// <summary>
+        /// Pull student Data from DB
+        /// </summary>
+        /// <returns></returns>
+        public List<Studententity> PullStudent()
+        {
+            List<Studententity> list = new List<Studententity>();
+
+            if (this.OpenConnection() == true)
+            {
+                string query = "Select * from mydb.student";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int MatrikelNr = 0;
+                string Name = "";
+                string Wohnort = "";
+                string Geschlecht = "";
+                int Alter = 0;
+
+                while (dataReader.Read())
+                {
+                    if (!dataReader.IsDBNull(0))
+                    {
+                        MatrikelNr = dataReader.GetInt16(0);
+                    }
+                    if (!dataReader.IsDBNull(1))
+                    {
+                        Name = dataReader.GetString(1);
+                    }
+                    if (!dataReader.IsDBNull(2))
+                    {
+                        Wohnort = dataReader.GetString(2);
+                    }
+                    if (!dataReader.IsDBNull(3))
+                    {
+                        Geschlecht = dataReader.GetString(3);
+                    }
+                    if (!dataReader.IsDBNull(4))
+                    {
+                        Alter = dataReader.GetInt16(4);
+                    }
+                    list.Add(new Studententity(MatrikelNr, Name, Wohnort, Geschlecht, Alter));
+                }
+
+            }
+            //close Connection
+            this.CloseConnection();
+
+            return list;
+        }
+
+        /// <summary>
+        /// Pull Zot Student_has_Lehrveranstaltungentity from the DB
+        /// </summary>
+        /// <returns></returns>
+        public List<Student_has_Lehrveranstaltungentity> PullStudent_has_Lehrveranstaltungentity()
+        {
+            List<Student_has_Lehrveranstaltungentity> list = new List<Student_has_Lehrveranstaltungentity>();
+
+            if (this.OpenConnection() == true)
+            {
+                string query = "Select * from mydb.student_has_lehrveranstaltung";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int Student_Matrikelnummer = 0;
+                int Lehrveranstaltung_Lehrveranstaltungsnummer = 0;
+
+                while (dataReader.Read())
+                {
+                    if (!dataReader.IsDBNull(0))
+                    {
+                        Student_Matrikelnummer = dataReader.GetInt16(0);
+                    }
+                    if (!dataReader.IsDBNull(1))
+                    {
+                        Lehrveranstaltung_Lehrveranstaltungsnummer = dataReader.GetInt16(1);
+                    }
+                    list.Add(new Student_has_Lehrveranstaltungentity(Student_Matrikelnummer, Lehrveranstaltung_Lehrveranstaltungsnummer));
+                }
+
+            }
+            //close Connection
+            this.CloseConnection();
+
+            return list;
+        }
     }
 }

@@ -20,6 +20,8 @@ namespace DatenbankFHModell
         //Download Data
         public event EventHandler DownloadFakultaetDataRequested;
         public event EventHandler<List<Fakultaetentity>> SendFakultaetDataRequested;
+        public event EventHandler DownloadGebaeudeDataRequested;
+        public event EventHandler<List<Gebaeudeentity>> SendGebaeudeDataRequested;
 
         public void SendStartStudent(object sender, EventArgs e)
         {
@@ -59,6 +61,16 @@ namespace DatenbankFHModell
         public void SendFakultaetData(object sender, List<Fakultaetentity> List)
         {
             SendFakultaetDataRequested(sender, List);
+        }
+
+        public void DownloadGebaeudeData(object sender, EventArgs e)
+        {
+            DownloadGebaeudeDataRequested(sender, e);
+        }
+
+        public void SendGebaeudeData(object sender, List<Gebaeudeentity> List)
+        {
+            SendGebaeudeDataRequested(sender, List);
         }
     }
 }
