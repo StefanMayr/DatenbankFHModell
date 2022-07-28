@@ -13,6 +13,11 @@ namespace DatenbankFHModell
         public string StudentWohnort { get; set; }
         public string StudentGeschlecht { get; set; }
         public int StudentAlter { get; set; }
+
+        public Studententity(string _studentname)
+        {
+            Studentname = _studentname;
+        }
         public Studententity(int _matrikelnummer, string _studentname, string _studentWohnort, string _studentGeschlecht, int _studentAlter)
         {
             Matrikelnummer = _matrikelnummer;

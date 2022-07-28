@@ -923,6 +923,13 @@ namespace DatenbankFHModell
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Lehrveranstaltungsnummer"></param>
+        /// <param name="Neuername"></param>
+        /// <param name="NeuesDatum"></param>
+        /// <param name="NeueEinheit"></param>
         public void Update_Lehrveranstaltung(int Lehrveranstaltungsnummer, string Neuername, DateTime NeuesDatum, int NeueEinheit)
         {
             string query = "Update mydb.lehrveranstaltung set NameLehrveranstaltung = '" + Neuername + "', DatumLehrveranstaltung = '" + NeuesDatum + "', Einheit = " + NeueEinheit + "where Lehrveranstaltungsnummer = " + Lehrveranstaltungsnummer + ";";
@@ -937,6 +944,14 @@ namespace DatenbankFHModell
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Matrikelnummer"></param>
+        /// <param name="Neuername"></param>
+        /// <param name="NeuerWohnort"></param>
+        /// <param name="NeuesGeschlecht"></param>
+        /// <param name="NeueAlter"></param>
         public void Update_Student(int Matrikelnummer, string Neuername, string NeuerWohnort, string NeuesGeschlecht, int NeueAlter)
         {
             string query = "Update mydb.student set NameStudent = '" + Neuername + "', WohnortStudent = '" + NeuerWohnort + "', GeschlechtStudent = '" + NeuesGeschlecht + "', AlterStudent = " + NeueAlter + " where Matrikelnummer = " + Matrikelnummer +";";
@@ -950,5 +965,71 @@ namespace DatenbankFHModell
                 MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
             }
         }
+
+        public List<object> PullStudent_has_Lehrveranstaltung()
+        {
+            List<object> list = new List<object>();
+            //List<T> list = new List<T>();
+            List<Studententity> students = new List<Studententity>();
+            List<Student_has_Lehrveranstaltungentity> studenthassome = new List<Student_has_Lehrveranstaltungentity>();
+            List<Lehrveranstaltungentity> lehrveranstaltung = new List<Lehrveranstaltungentity>();
+
+            if (this.OpenConnection() == true)
+            {
+                string query = "Select student_has_lehrveranstaltung.Student_Matrikelnummer, student.NameStudent, student_has_lehrveranstaltung.Lehrveranstaltung_Lehrveranstaltungsnummer, mydb.lehrveranstaltung.NameLehrveranstaltung, mydb.lehrveranstaltung.DatumLehrveranstaltung, mydb.lehrveranstaltung.Einheit from (mydb.student inner join mydb.student_has_lehrveranstaltung on student_has_lehrveranstaltung.Student_Matrikelnummer = student.Matrikelnummer) inner join mydb.lehrveranstaltung on mydb.lehrveranstaltung.Lehrveranstaltungsnummer = mydb.student_has_lehrveranstaltung.Lehrveranstaltung_Lehrveranstaltungsnummer";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int Matrikelnummer = 0;
+                string NameStudent = "";
+                int Lehrveranstaltung_Lehrveranstaltungsnummer = 0;
+                string NameLehrv = "";
+                DateTime Date = DateTime.Now;
+                int Einheit = 0;
+
+                while (dataReader.Read())
+                {
+                    if (!dataReader.IsDBNull(0))
+                    {
+                        Matrikelnummer = dataReader.GetInt16(0);
+                    }
+                    if (!dataReader.IsDBNull(1))
+                    {
+                        NameStudent = dataReader.GetString(1);
+                    }
+                    if (!dataReader.IsDBNull(2))
+                    {
+                        Lehrveranstaltung_Lehrveranstaltungsnummer = dataReader.GetInt16(2);
+                    }
+                    if (!dataReader.IsDBNull(3))
+                    {
+                        NameLehrv = dataReader.GetString(3);
+                    }
+                    if (!dataReader.IsDBNull(4))
+                    {
+                        Date = dataReader.GetDateTime(4);
+                    }
+                    if (!dataReader.IsDBNull(5))
+                    {
+                        Einheit = dataReader.GetInt16(5);
+                    }
+                    students.Add(new Studententity(NameStudent));
+                    studenthassome.Add(new Student_has_Lehrveranstaltungentity(Matrikelnummer, Lehrveranstaltung_Lehrveranstaltungsnummer));
+                    lehrveranstaltung.Add(new Lehrveranstaltungentity(NameLehrv, Date, Einheit));
+                    list.Add(students);
+                    list.Add(studenthassome);
+                    list.Add(lehrveranstaltung);
+                }
+
+            }
+            //close Connection
+            this.CloseConnection();
+
+            return list;
+        }
+
+
     }
 }

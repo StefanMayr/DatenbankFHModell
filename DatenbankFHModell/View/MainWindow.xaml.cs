@@ -193,11 +193,19 @@ namespace DatenbankFHModell
             
         }
 
-        private void btn_Student_KeyDown_1(object sender, KeyEventArgs e)
+        private void btn_Student_KeyUp(object sender, KeyEventArgs e)
         {
 
         }
 
+        private void btn_Student_has_Lehrveranstaltung_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void btn_Student_has_Lehrveranstaltung_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            List<object> list = TheDBManager.PullStudent_has_Lehrveranstaltung();
+        }
     }
 }
