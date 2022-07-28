@@ -143,12 +143,12 @@ namespace DatenbankFHModell
         {
             Grid_MainDataGrid.Columns.Clear();
             AddColumnatRuntime("Personalnummer", "Personalnummer");
-            AddColumnatRuntime("Name", "Name");
-            AddColumnatRuntime("Wohnort", "Wohnort");
-            AddColumnatRuntime("Alter", "Alter");
-            AddColumnatRuntime("Ausbildung", "Ausbuldung");
-            AddColumnatRuntime("Geschlecht", "Geschlecht");
-            AddColumnatRuntime("Fakultät", "Fakultät");
+            AddColumnatRuntime("Name", "NameLehrender");
+            AddColumnatRuntime("Wohnort", "WohnortLehrender");
+            AddColumnatRuntime("Alter", "AlterLehrender");
+            AddColumnatRuntime("Ausbildung", "AusbildungLehrender");
+            AddColumnatRuntime("Geschlecht", "GeschlechtLehrender");
+            AddColumnatRuntime("Fakultät", "Fakultätnummer");
             foreach(Lehrendeentity item in list)
             {
                 Grid_MainDataGrid.Items.Add(item);
@@ -159,8 +159,8 @@ namespace DatenbankFHModell
         {
             Grid_MainDataGrid.Columns.Clear();
             AddColumnatRuntime("Lehrveranstaltungsnummer", "Lehrveranstaltungsnummer");
-            AddColumnatRuntime("Lehrveranstaltungsname", "NameLehrveranstaltung");
-            AddColumnatRuntime("Datum", "DatumLehrveranstaltung");
+            AddColumnatRuntime("Lehrveranstaltungsname", "Lehrveranstaltungsname");
+            AddColumnatRuntime("Datum", "Lehrveranstaltungsdate");
             AddColumnatRuntime("Einheit", "Einheit");
             foreach (Lehrveranstaltungentity item in list)
             {
@@ -172,7 +172,7 @@ namespace DatenbankFHModell
         {
             Grid_MainDataGrid.Columns.Clear();
             AddColumnatRuntime("Raumnummer", "Raumnummer");
-            AddColumnatRuntime("Gebäudenummer", "Gebaeude_Gebaeudenummer");
+            AddColumnatRuntime("Gebäudenummer", "Gebaeudenummer");
             foreach (Raumentity item in list)
             {
                 Grid_MainDataGrid.Items.Add(item);
@@ -187,5 +187,17 @@ namespace DatenbankFHModell
                 Binding = new Binding(_binding)
             });
         }
+
+        private void btn_Student_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void btn_Student_KeyDown_1(object sender, KeyEventArgs e)
+        {
+
+        }
+
+
     }
 }
