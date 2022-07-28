@@ -104,7 +104,7 @@ namespace DatenbankFHModell
         }
 
         //Update statement
-        public void Update(string query)
+        private bool Update(string query)
         {
             //Open connection
             if (this.OpenConnection() == true)
@@ -121,6 +121,12 @@ namespace DatenbankFHModell
 
                 //close connection
                 this.CloseConnection();
+
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -142,33 +148,6 @@ namespace DatenbankFHModell
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
-                this.CloseConnection();
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        //Update statement
-        private bool Update(string query)
-        {
-            //Open connection
-            if (this.OpenConnection() == true)
-            {
-                //create mysql command
-                MySqlCommand cmd = new MySqlCommand();
-                //Assign the query using CommandText
-                cmd.CommandText = query;
-                //Assign the connection using Connection
-                cmd.Connection = connection;
-
-                //Execute query
-                cmd.ExecuteNonQuery();
-
-                //close connection
                 this.CloseConnection();
 
                 return true;
@@ -769,8 +748,8 @@ namespace DatenbankFHModell
         /// <param name="Fakultaetnummer"></param>
         public void DeleteFakultaet(int Fakultaetnummer)
         {
-            string quary = "Delete from mydb.fakultät where Fakultätnummer =  '" + Fakultaetnummer + "';";
-            if (this.Delete(quary))
+            string query = "Delete from mydb.fakultät where Fakultätnummer =  '" + Fakultaetnummer + "';";
+            if (this.Delete(query))
             {
                 MessageBox.Show("Ausgewählte Fakultät wurde gelöscht.");
             }
@@ -786,8 +765,8 @@ namespace DatenbankFHModell
         /// <param name="Gebaeudenummer"></param>
         public void DeleteGebaeude(int Gebaeudenummer)
         {
-            string quary = "Delete from mydb.gebaeude where Gebaeudenummer = '" + Gebaeudenummer + "';";
-            if (this.Delete(quary))
+            string query = "Delete from mydb.gebaeude where Gebaeudenummer = '" + Gebaeudenummer + "';";
+            if (this.Delete(query))
             {
                 MessageBox.Show("Ausgewähltes Gebauede wurde aus der Datenbank entfernt.");
             }
@@ -803,8 +782,8 @@ namespace DatenbankFHModell
         /// <param name="Personalnummer"></param>
         public void DeleteLehrende(int Personalnummer)
         {
-            string quary = "Delete from mydb.lehrende where Personalnummer = '" + Personalnummer + "';";
-            if (this.Delete(quary))
+            string query = "Delete from mydb.lehrende where Personalnummer = '" + Personalnummer + "';";
+            if (this.Delete(query))
             {
                 MessageBox.Show("Ausgewählte Lehrperson wurde aus der Datenbank entfernt.");
             }
@@ -820,8 +799,8 @@ namespace DatenbankFHModell
         /// <param name="Personalnummer"></param>
         public void DeleteLehrende_has_lehrveranstaltung(int Lehrende_Personalnummer)
         {
-            string quary = "Delete from mydb.lehrende_has_lehrveranstaltung where Lehrende_Personalnummer = '" + Lehrende_Personalnummer + "';";
-            if (this.Delete(quary))
+            string query = "Delete from mydb.lehrende_has_lehrveranstaltung where Lehrende_Personalnummer = '" + Lehrende_Personalnummer + "';";
+            if (this.Delete(query))
             {
                 MessageBox.Show("Ausgewählte Verknüpfung der Lehrperson mit Lehrveranstaltung wurde aus der Datenbank entfernt.");
             }
@@ -837,8 +816,8 @@ namespace DatenbankFHModell
         /// <param name="Personalnummer"></param>
         public void DeleteLehrveranstaltung(int Lehrveranstaltungsnummer)
         {
-            string quary = "Delete from mydb.lehrveranstaltung where Lehrveranstaltungsnummer = '" + Lehrveranstaltungsnummer + "';";
-            if (this.Delete(quary))
+            string query = "Delete from mydb.lehrveranstaltung where Lehrveranstaltungsnummer = '" + Lehrveranstaltungsnummer + "';";
+            if (this.Delete(query))
             {
                 MessageBox.Show("Ausgewählte Lehrveranstaltung wurde aus der Datenbank entfernt.");
             }
@@ -854,8 +833,8 @@ namespace DatenbankFHModell
         /// <param name="Personalnummer"></param>
         public void DeleteLehrveranstaltung_has_raum(int Lehrveranstaltungsnummer)
         {
-            string quary = "Delete from mydb.lehrveranstaltung_has_raum where Lehrveranstaltung_Lehrveranstaltungsnummer = '" + Lehrveranstaltungsnummer + "';";
-            if (this.Delete(quary))
+            string query = "Delete from mydb.lehrveranstaltung_has_raum where Lehrveranstaltung_Lehrveranstaltungsnummer = '" + Lehrveranstaltungsnummer + "';";
+            if (this.Delete(query))
             {
                 MessageBox.Show("Ausgewählte Verknüpfung der Lehrveranstaltung mit Raum wurde aus der Datenbank entfernt.");
             }
@@ -871,8 +850,8 @@ namespace DatenbankFHModell
         /// <param name="Personalnummer"></param>
         public void DeleteRaum(int Raumnummer)
         {
-            string quary = "Delete from mydb.raum where Raumnummer = '" + Raumnummer + "';";
-            if (this.Delete(quary))
+            string query = "Delete from mydb.raum where Raumnummer = '" + Raumnummer + "';";
+            if (this.Delete(query))
             {
                 MessageBox.Show("Ausgewählter Raum wurde aus der Datenbank entfernt.");
             }
@@ -888,8 +867,8 @@ namespace DatenbankFHModell
         /// <param name="Personalnummer"></param>
         public void DeleteStudent(int Matrikelnummer)
         {
-            string quary = "Delete from mydb.student where Matrikelnummer = '" + Matrikelnummer +"';";
-            if (this.Delete(quary))
+            string query = "Delete from mydb.student where Matrikelnummer = '" + Matrikelnummer +"';";
+            if (this.Delete(query))
             {
                 MessageBox.Show("Ausgewählter Student wurde aus der Datenbank entfernt.");
             }
@@ -905,10 +884,66 @@ namespace DatenbankFHModell
         /// <param name="Personalnummer"></param>
         public void DeleteStudent_has_lehrveranstaltung(int Matrikelnummer)
         {
-            string quary = "Delete from mydb.student_has_lehrveranstaltung where Student_Matrikelnummer = '" + Matrikelnummer + "';";
-            if (this.Delete(quary))
+            string query = "Delete from mydb.student_has_lehrveranstaltung where Student_Matrikelnummer = '" + Matrikelnummer + "';";
+            if (this.Delete(query))
             {
                 MessageBox.Show("Ausgewählte Verknüpfung von Student mit Lehrveranstaltung wurde aus der Datenbank entfernt.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        public void Update_Fakultaetname(int Fakultaetnummer, string Neuerfakultaetname)
+        {
+            string query = "Update mydb.fakultät set NameFakultät = " + Neuerfakultaetname + "where Fakultätnummer = " + Fakultaetnummer + ";";
+
+            if (this.Update(query))
+            {
+                MessageBox.Show("Aktualisierung erfolgreich.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        public void Update_Lehrende(int Personalnummer, string Neuername, string NeuerWohn, int Neualter, string NeuAusbildung, string Neugeschl, int Neufakult)
+        {
+            string query = "Update mydb.lehrende set NameLehrender = '" + Personalnummer + "', WohnortLehrender = '" + NeuerWohn + "', AlterLehrender = " + Neualter + ", AusbildungLehrender = '" + NeuAusbildung + "', GeschlechtLehrender = '" + Neugeschl + "', Fakultät_Fakultätnummer = " + Neufakult + " where Personalnummer = 0;";
+
+            if (this.Update(query))
+            {
+                MessageBox.Show("Aktualisierung erfolgreich.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        public void Update_Lehrveranstaltung(int Lehrveranstaltungsnummer, string Neuername, DateTime NeuesDatum, int NeueEinheit)
+        {
+            string query = "Update mydb.lehrveranstaltung set NameLehrveranstaltung = '" + Neuername + "', DatumLehrveranstaltung = '" + NeuesDatum + "', Einheit = " + NeueEinheit + "where Lehrveranstaltungsnummer = " + Lehrveranstaltungsnummer + ";";
+
+            if (this.Update(query))
+            {
+                MessageBox.Show("Aktualisierung erfolgreich.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        public void Update_Student(int Matrikelnummer, string Neuername, string NeuerWohnort, string NeuesGeschlecht, int NeueAlter)
+        {
+            string query = "Update mydb.student set NameStudent = '" + Neuername + "', WohnortStudent = '" + NeuerWohnort + "', GeschlechtStudent = '" + NeuesGeschlecht + "', AlterStudent = " + NeueAlter + " where Matrikelnummer = " + Matrikelnummer +";";
+
+            if (this.Update(query))
+            {
+                MessageBox.Show("Aktualisierung erfolgreich.");
             }
             else
             {
