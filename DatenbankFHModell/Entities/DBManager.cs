@@ -125,6 +125,7 @@ namespace DatenbankFHModell
         }
 
         //Delete statement
+        /*
         public void Delete(string query)
         {
             if (this.OpenConnection() == true)
@@ -132,6 +133,49 @@ namespace DatenbankFHModell
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
+            }
+        }*/
+
+        private bool Delete(string query)
+        {
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //Update statement
+        private bool Update(string query)
+        {
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -719,6 +763,157 @@ namespace DatenbankFHModell
             return list;
         }
 
-        
+        /// <summary>
+        /// Delete a Fakultaet object from the Database
+        /// </summary>
+        /// <param name="Fakultaetnummer"></param>
+        public void DeleteFakultaet(int Fakultaetnummer)
+        {
+            string quary = "Delete from mydb.fakultät where Fakultätnummer =  '" + Fakultaetnummer + "';";
+            if (this.Delete(quary))
+            {
+                MessageBox.Show("Ausgewählte Fakultät wurde gelöscht.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        /// <summary>
+        /// Delete a Gebaeude object from the Database
+        /// </summary>
+        /// <param name="Gebaeudenummer"></param>
+        public void DeleteGebaeude(int Gebaeudenummer)
+        {
+            string quary = "Delete from mydb.gebaeude where Gebaeudenummer = '" + Gebaeudenummer + "';";
+            if (this.Delete(quary))
+            {
+                MessageBox.Show("Ausgewähltes Gebauede wurde aus der Datenbank entfernt.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        /// <summary>
+        /// Delete a Lehrende object from the Database
+        /// </summary>
+        /// <param name="Personalnummer"></param>
+        public void DeleteLehrende(int Personalnummer)
+        {
+            string quary = "Delete from mydb.lehrende where Personalnummer = '" + Personalnummer + "';";
+            if (this.Delete(quary))
+            {
+                MessageBox.Show("Ausgewählte Lehrperson wurde aus der Datenbank entfernt.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        /// <summary>
+        /// Delete a Lehrende_hasLehrveranstaltung object from the Database
+        /// </summary>
+        /// <param name="Personalnummer"></param>
+        public void DeleteLehrende_has_lehrveranstaltung(int Lehrende_Personalnummer)
+        {
+            string quary = "Delete from mydb.lehrende_has_lehrveranstaltung where Lehrende_Personalnummer = '" + Lehrende_Personalnummer + "';";
+            if (this.Delete(quary))
+            {
+                MessageBox.Show("Ausgewählte Verknüpfung der Lehrperson mit Lehrveranstaltung wurde aus der Datenbank entfernt.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        /// <summary>
+        /// Delete a Lehrveranstaltung object from the Database
+        /// </summary>
+        /// <param name="Personalnummer"></param>
+        public void DeleteLehrveranstaltung(int Lehrveranstaltungsnummer)
+        {
+            string quary = "Delete from mydb.lehrveranstaltung where Lehrveranstaltungsnummer = '" + Lehrveranstaltungsnummer + "';";
+            if (this.Delete(quary))
+            {
+                MessageBox.Show("Ausgewählte Lehrveranstaltung wurde aus der Datenbank entfernt.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        /// <summary>
+        /// Delete a Lehrveranstaltung_has_raum object from the Database
+        /// </summary>
+        /// <param name="Personalnummer"></param>
+        public void DeleteLehrveranstaltung_has_raum(int Lehrveranstaltungsnummer)
+        {
+            string quary = "Delete from mydb.lehrveranstaltung_has_raum where Lehrveranstaltung_Lehrveranstaltungsnummer = '" + Lehrveranstaltungsnummer + "';";
+            if (this.Delete(quary))
+            {
+                MessageBox.Show("Ausgewählte Verknüpfung der Lehrveranstaltung mit Raum wurde aus der Datenbank entfernt.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        /// <summary>
+        /// Delete a raum object from the Database
+        /// </summary>
+        /// <param name="Personalnummer"></param>
+        public void DeleteRaum(int Raumnummer)
+        {
+            string quary = "Delete from mydb.raum where Raumnummer = '" + Raumnummer + "';";
+            if (this.Delete(quary))
+            {
+                MessageBox.Show("Ausgewählter Raum wurde aus der Datenbank entfernt.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        /// <summary>
+        /// Delete a Student object from the Database
+        /// </summary>
+        /// <param name="Personalnummer"></param>
+        public void DeleteStudent(int Matrikelnummer)
+        {
+            string quary = "Delete from mydb.student where Matrikelnummer = '" + Matrikelnummer +"';";
+            if (this.Delete(quary))
+            {
+                MessageBox.Show("Ausgewählter Student wurde aus der Datenbank entfernt.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        /// <summary>
+        /// Delete a Studenthas_lehrveranstaltung object from the Database
+        /// </summary>
+        /// <param name="Personalnummer"></param>
+        public void DeleteStudent_has_lehrveranstaltung(int Matrikelnummer)
+        {
+            string quary = "Delete from mydb.student_has_lehrveranstaltung where Student_Matrikelnummer = '" + Matrikelnummer + "';";
+            if (this.Delete(quary))
+            {
+                MessageBox.Show("Ausgewählte Verknüpfung von Student mit Lehrveranstaltung wurde aus der Datenbank entfernt.");
+            }
+            else
+            {
+                MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
     }
 }
