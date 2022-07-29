@@ -30,6 +30,12 @@ namespace DatenbankFHModell
         public event EventHandler<List<Lehrveranstaltungentity>> SendLehrveranstaltungDataRequested;
         public event EventHandler DownloadRaumDataRequested;
         public event EventHandler<List<Raumentity>> SendRaumDataRequested;
+        public event EventHandler DownloadStudent_has_LehrveranstaltungDataRequested;
+        public event EventHandler<List<Student_has_Lehrveranstaltungentity>> SendStudent_has_LehrveranstaltungDataRequested;
+        public event EventHandler DownloadLehrende_has_LehrveranstaltungDataRequested;
+        public event EventHandler<List<Lehrende_has_Lehrveranstaltungentity>> SendLehrende_has_LehrveranstaltungDataRequested;
+        public event EventHandler DownloadLehrveranstaltung_has_RaumDataRequested;
+        public event EventHandler<List<Lehrveranstaltung_has_raumentity>> SendLehrveranstaltung_has_RaumDataRequested;
 
 
         public void SendStartStudent(object sender, EventArgs e)
@@ -121,5 +127,36 @@ namespace DatenbankFHModell
         {
             SendRaumDataRequested(sender, list);
         }
+
+        public void DownloadStudent_has_LehrveranstaltungData(object sender, EventArgs e)
+        {
+            DownloadStudent_has_LehrveranstaltungDataRequested(sender, e);
+        }
+
+        public void SendStudent_has_LehrveranstaltungData(object sender, List<Student_has_Lehrveranstaltungentity> list)
+        {
+            SendStudent_has_LehrveranstaltungDataRequested(sender, list);
+        }
+
+        public void DownloadLehrende_has_LehrveranstaltungData(object sender, EventArgs e)
+        {
+            DownloadLehrende_has_LehrveranstaltungDataRequested(sender, e);
+        }
+
+        public void SendLehrende_has_LehrveranstaltungData(object sender, List<Lehrende_has_Lehrveranstaltungentity> list)
+        {
+            SendLehrende_has_LehrveranstaltungDataRequested(sender, list);
+        }
+
+        public void DownloadLehrveranstaltung_has_RaumData(object sender, EventArgs e)
+        {
+            DownloadLehrveranstaltung_has_RaumDataRequested(sender, e);
+        }
+
+        public void SendLehrveranstaltung_has_RaumData(object sender, List<Lehrveranstaltung_has_raumentity> list)
+        {
+            SendLehrveranstaltung_has_RaumDataRequested(sender, list);
+        }
+
     }
 }

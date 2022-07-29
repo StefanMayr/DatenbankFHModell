@@ -36,6 +36,9 @@ namespace DatenbankFHModell
             TheEvents.SendLehrendenDataRequested += InsertLehrendeData;
             TheEvents.SendLehrveranstaltungDataRequested += InsertLehrveranstaltungsData;
             TheEvents.SendRaumDataRequested += InsertRaumData;
+            TheEvents.SendStudent_has_LehrveranstaltungDataRequested += InsertStudent_has_Lehrveranstaltung;
+            TheEvents.SendLehrende_has_LehrveranstaltungDataRequested += InsertLehrende_has_Lehrveranstaltung;
+            TheEvents.SendLehrveranstaltung_has_RaumDataRequested += InsertLehrveranstaltung_has_raum;
         }
 
         private void btn_Connect_Click(object sender, RoutedEventArgs e)
@@ -211,7 +214,11 @@ namespace DatenbankFHModell
 
         private void btn_Student_has_Lehrveranstaltung_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            List<Student_has_Lehrveranstaltungentity> list = TheDBManager.PullStudent_has_Lehrveranstaltung();
+            TheEvents.DownloadStudent_has_LehrveranstaltungData(sender, e);
+        }
+
+        private void InsertStudent_has_Lehrveranstaltung(object sender, List<Student_has_Lehrveranstaltungentity> list)
+        {
             Grid_MainDataGrid.Columns.Clear();
             Grid_MainDataGrid.Items.Clear();
             AddColumnatRuntime("Matrikelnummer", "Student_Matrikelnummer");
@@ -221,7 +228,7 @@ namespace DatenbankFHModell
             AddColumnatRuntime("Lehrveranstaltungsdatum", "Lehrveranstaltungsdate");
             AddColumnatRuntime("Einheit", "Einheit");
 
-            foreach(Student_has_Lehrveranstaltungentity item in list)
+            foreach (Student_has_Lehrveranstaltungentity item in list)
             {
                 Grid_MainDataGrid.Items.Add(item);
             }
@@ -234,7 +241,11 @@ namespace DatenbankFHModell
 
         private void btn_Lehrende_has_Lehrveranstaltung_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            List<Lehrende_has_Lehrveranstaltungentity> list = TheDBManager.PullLehrende_has_Lehrveranstaltungentity();
+            TheEvents.DownloadLehrende_has_LehrveranstaltungData(sender, e);
+        }
+
+        private void InsertLehrende_has_Lehrveranstaltung(object sender, List<Lehrende_has_Lehrveranstaltungentity> list)
+        {
             Grid_MainDataGrid.Columns.Clear();
             Grid_MainDataGrid.Items.Clear();
             AddColumnatRuntime("Personalnummer", "Lehrende_Personalnummer");
@@ -257,7 +268,11 @@ namespace DatenbankFHModell
 
         private void btn_Lehrveranstaltung_has_raum_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            List<Lehrveranstaltung_has_raumentity> list = TheDBManager.PullLehrveranstaltung_has_raumentity();
+            TheEvents.DownloadLehrveranstaltungData(sender, e);
+        }
+
+        private void InsertLehrveranstaltung_has_raum(object sender, List<Lehrveranstaltung_has_raumentity> list)
+        {
             Grid_MainDataGrid.Columns.Clear();
             Grid_MainDataGrid.Items.Clear();
             AddColumnatRuntime("Lehrveranstaltungsnsummer", "Lehrveranstaltung_Lehrveranstaltungsnsummer");
