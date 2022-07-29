@@ -21,11 +21,14 @@ namespace DatenbankFHModell
     {
         DBManager TheDBManager;
         Eventclass TheEvents;
+
+
         public Fakultät(DBManager thedbmanager, Eventclass theEvents)
         {
             InitializeComponent();
             TheDBManager = thedbmanager;
             TheEvents = theEvents;
+            TheEvents.InsertNewFakultaEntity_requ += Insert_FakultaData;
         }
 
         private void btn_Insert_Click(object sender, RoutedEventArgs e)
@@ -53,6 +56,22 @@ namespace DatenbankFHModell
         {
             txt_FakNr.Text = "";
             txt_FakName.Text = "";
+        }
+
+        private void btn_Load_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Drop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Insert_FakultaData(object sender, Fakultaetentity e)
+        {
+            txt_FakName.Text = e.Fakultaetname;
+            txt_FakNr.Text = Convert.ToString(e.Fakultaetnummer);
         }
     }
 }

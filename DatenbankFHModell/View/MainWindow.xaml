@@ -55,7 +55,7 @@
                     </StackPanel>
                 </Border>
 
-                <Border Height="150" Margin="0,5,0,5" CornerRadius="5" BorderThickness="1" BorderBrush="Black">
+                <Border Height="180" Margin="0,5,0,5" CornerRadius="5" BorderThickness="1" BorderBrush="Black">
                     <StackPanel>
                         <Label FontSize="14">Daten hinzufügen:</Label>
                         <StackPanel Orientation="Horizontal" Height="30">
@@ -70,6 +70,8 @@
                             <Button HorizontalAlignment="Left" x:Name="btn_Gebaeude" Click="btn_Gebaeude_Click" MouseRightButtonDown="btn_Gebaeude_MouseRightButtonDown" Width="179" Margin="2">Gebäude</Button>
                             <Button HorizontalAlignment="Right" x:Name="btn_Raum" Click="btn_Raum_Click" MouseRightButtonDown="btn_Raum_MouseRightButtonDown" Width="179" Margin="2">Raum</Button>
                         </StackPanel>
+                        <Button Width="150" Height="25" Margin="0,15" x:Name="btn_Bearbeiten" Click="btn_Bearbeiten_Click" >Bearbeiten</Button>
+
                     </StackPanel>
                     
                 </Border>

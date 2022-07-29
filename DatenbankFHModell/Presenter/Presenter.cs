@@ -59,6 +59,7 @@ namespace DatenbankFHModell
             TheEvent.StartStudent_has_LRequested += StartStudent_has_Lerhv;
             TheEvent.StartLehrende_has_LRequested += StartLehrende_has_Lerhv;
             TheEvent.StartLehrv_has_RRequested += StartLehrver_has_Raum;
+            TheEvent.LoadFakultaEntityRequested += LoadFakultaEntity_requ;
         }
 
         private void StartStudentPage(object sender, EventArgs e)
@@ -158,6 +159,11 @@ namespace DatenbankFHModell
         private void StartLehrver_has_Raum(object sender, EventArgs e)
         {
             TheLehrver_h_RPage.ShowDialog();
+        }
+
+        private void LoadFakultaEntity_requ(object sender, Fakultaetentity e)
+        {
+            TheEvent.InsertNewFakultaEntity(sender, e);
         }
     }
 }

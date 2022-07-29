@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +26,7 @@ namespace DatenbankFHModell
         //private SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer();
         DBManager TheDBManager;
         Eventclass TheEvents;
+        char chooseChangeType = '0';
         public MainWindow(DBManager thedbManager, Eventclass theevents)
         {
             InitializeComponent();
@@ -117,6 +120,7 @@ namespace DatenbankFHModell
             {
                 Grid_MainDataGrid.Items.Add(item);
             }
+            chooseChangeType = '1';
         }
 
         private void InsertGebaeudeData(object sender, List<Gebaeudeentity> list)
@@ -128,6 +132,7 @@ namespace DatenbankFHModell
             {
                 Grid_MainDataGrid.Items.Add(item);
             }
+            chooseChangeType = '2';
         }
 
         private void InsertStudentData(object sender, List<Studententity> list)
@@ -143,6 +148,7 @@ namespace DatenbankFHModell
             {
                 Grid_MainDataGrid.Items.Add(item);
             }
+            chooseChangeType = '3';
         }
 
         private void InsertLehrendeData(object sender, List<Lehrendeentity> list)
@@ -160,6 +166,7 @@ namespace DatenbankFHModell
             {
                 Grid_MainDataGrid.Items.Add(item);
             }
+            chooseChangeType = '4';
         }
 
         private void InsertLehrveranstaltungsData(object sender, List<Lehrveranstaltungentity> list)
@@ -174,6 +181,7 @@ namespace DatenbankFHModell
             {
                 Grid_MainDataGrid.Items.Add(item);
             }
+            chooseChangeType = '5';
         }
 
         private void InsertRaumData(object sender, List<Raumentity> list)
@@ -186,6 +194,7 @@ namespace DatenbankFHModell
             {
                 Grid_MainDataGrid.Items.Add(item);
             }
+            chooseChangeType = '6';
         }
 
         private void AddColumnatRuntime(string _header, string _binding)
@@ -285,6 +294,51 @@ namespace DatenbankFHModell
             foreach (Lehrveranstaltung_has_raumentity item in list)
             {
                 Grid_MainDataGrid.Items.Add(item);
+            }
+        }
+
+        private void btn_Bearbeiten_Click(object sender, RoutedEventArgs e)
+        {
+
+            chooseChangeType = this.chooseChangeType;
+
+            switch (chooseChangeType)
+            {
+                case '1':
+                    {
+                        Fakultaetentity fak = Grid_MainDataGrid.SelectedItem as Fakultaetentity;
+                        List<Fakultaetentity> fakList = new List<Fakultaetentity>();
+                        fakList.Add(fak);
+                        TheEvents.LoadFakultaEntity(sender, fak);
+                        TheEvents.SendStartFakultät(sender, e);
+
+                        break;
+                    }
+                case '2':
+                    {
+                        TheEvents.StartGebaeude(sender, e);
+                        break;
+                    }
+                case '3':
+                    {
+                        TheEvents.SendStartStudent(sender, e);
+                        break;
+                    }
+                case '4':
+                    {
+                        TheEvents.StartLehrenden(sender, e);
+                        break;
+                    }
+                case '5':
+                    {
+                        TheEvents.StartLehrveranstaltung(sender, e);
+                        break;
+                    }
+                case '6':
+                    {
+                        TheEvents.StartRaum(sender, e);
+                        break;
+                    }
             }
         }
     }

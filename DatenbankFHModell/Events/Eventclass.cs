@@ -40,6 +40,10 @@ namespace DatenbankFHModell
         public event EventHandler DownloadLehrveranstaltung_has_RaumDataRequested;
         public event EventHandler<List<Lehrveranstaltung_has_raumentity>> SendLehrveranstaltung_has_RaumDataRequested;
 
+        //Daten in Fenster laden
+        public event EventHandler<Fakultaetentity> LoadFakultaEntityRequested;
+        public event EventHandler<Fakultaetentity> InsertNewFakultaEntity_requ;
+
 
         public void SendStartStudent(object sender, EventArgs e)
         {
@@ -174,6 +178,16 @@ namespace DatenbankFHModell
         public void StartLehrv_has_R(object sender, EventArgs e)
         {
             StartLehrv_has_RRequested(sender, e);
+        }
+
+        public void LoadFakultaEntity(object sender, Fakultaetentity e)
+        {
+            LoadFakultaEntityRequested(sender, e);
+        }
+
+        public void InsertNewFakultaEntity(object sender, Fakultaetentity e)
+        {
+            InsertNewFakultaEntity_requ(sender, e); 
         }
     }
 }
