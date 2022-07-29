@@ -43,6 +43,7 @@ namespace DatenbankFHModell
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
+            ClearWindow();
             this.Hide();
         }
 

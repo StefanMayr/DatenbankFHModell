@@ -37,6 +37,10 @@ namespace DatenbankFHModell
                 ClearWindow();
                 this.Hide();
             }
+            else
+            {
+                MessageBox.Show("Falsche Eingabe!");
+            }
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
