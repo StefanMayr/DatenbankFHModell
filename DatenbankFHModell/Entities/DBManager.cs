@@ -1076,6 +1076,60 @@ namespace DatenbankFHModell
             return Lehrendelist;
         }
 
+        public List<Lehrveranstaltung_has_raumentity> PullLehrveranstaltung_has_raumentity()
+        {
+            List<Lehrveranstaltung_has_raumentity> Lerhveranstaltungslist = new List<Lehrveranstaltung_has_raumentity>();
+
+            if (this.OpenConnection() == true)
+            {
+                string query = "Select mydb.lehrveranstaltung_has_raum.Lehrveranstaltung_Lehrveranstaltungsnummer, mydb.lehrveranstaltung.NameLehrveranstaltung, mydb.lehrveranstaltung.DatumLehrveranstaltung, mydb.lehrveranstaltung.Einheit ,mydb.lehrveranstaltung_has_raum.Raum_Raumnummer, mydb.lehrveranstaltung_has_raum.Raum_Gebaeude_Gebaeudenummer from mydb.lehrveranstaltung_has_raum inner join mydb.lehrveranstaltung on mydb.lehrveranstaltung_has_raum.Lehrveranstaltung_Lehrveranstaltungsnummer = mydb.lehrveranstaltung.Lehrveranstaltungsnummer";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int Lehrveranstaltung_Lehrveranstaltungsnummer = 0;
+                string NameLehrv = "";
+                DateTime Date = DateTime.Now;
+                int Einheit = 0;
+                int Raumnummer = 0;
+                int Gebaeudenummer = 0;
+
+                while (dataReader.Read())
+                {
+                    if (!dataReader.IsDBNull(0))
+                    {
+                        Lehrveranstaltung_Lehrveranstaltungsnummer = dataReader.GetInt16(0);
+                    }
+                    if (!dataReader.IsDBNull(1))
+                    {
+                        NameLehrv = dataReader.GetString(1);
+                    }
+                    if (!dataReader.IsDBNull(2))
+                    {
+                        Date = dataReader.GetDateTime(2);
+                    }
+                    if (!dataReader.IsDBNull(3))
+                    {
+                        Einheit = dataReader.GetInt16(3);
+                    }
+                    if (!dataReader.IsDBNull(4))
+                    {
+                        Raumnummer = dataReader.GetInt16(4);
+                    }
+                    if (!dataReader.IsDBNull(5))
+                    {
+                        Gebaeudenummer = dataReader.GetInt16(5);
+                    }
+                    Lerhveranstaltungslist.Add(new Lehrveranstaltung_has_raumentity(NameLehrv, Lehrveranstaltung_Lehrveranstaltungsnummer, Date, Einheit, Raumnummer, Gebaeudenummer));
+                }
+
+            }
+            //close Connection
+            this.CloseConnection();
+
+            return Lerhveranstaltungslist;
+        }
 
     }
 }

@@ -79,7 +79,7 @@
                         <Label  FontSize="14">Daten verknüpfen:</Label>
                         <Button Margin="5,0,5,5" x:Name="btn_Lehrende_has_Lehrveranstaltung" Click="btn_Lehrende_has_Lehrveranstaltung_Click" MouseRightButtonDown="btn_Lehrende_has_Lehrveranstaltung_MouseRightButtonDown">Lehrenden einer Lehrveranstaltung zuweisen</Button>
                         <Button Margin="5,0,5,5" x:Name="btn_Student_has_Lehrveranstaltung" Click="btn_Student_has_Lehrveranstaltung_Click" MouseRightButtonDown="btn_Student_has_Lehrveranstaltung_MouseRightButtonDown">Student einer Lehrveranstaltung zuweisen</Button>
-                        <Button Margin="5,0,5,0">Lehrveranstaltung einem Raum zuweisen</Button>
+                        <Button Margin="5,0,5,0" x:Name="btn_Lehrveranstaltung_has_raum" Click="btn_Lehrveranstaltung_has_raum_Click" MouseRightButtonDown="btn_Lehrveranstaltung_has_raum_MouseRightButtonDown">Lehrveranstaltung einem Raum zuweisen</Button>
                     </StackPanel>
                 </Border>
             </StackPanel>

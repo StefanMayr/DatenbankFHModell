@@ -107,6 +107,7 @@ namespace DatenbankFHModell
         private void InsertFakultaetData(object sender, List<Fakultaetentity> list)
         {
             Grid_MainDataGrid.Columns.Clear();
+            Grid_MainDataGrid.Items.Clear();
             AddColumnatRuntime("Fakultaetnummer", "Fakultaetnummer");
             AddColumnatRuntime("Fakultaetname", "Fakultaetname");
             foreach(Fakultaetentity item in list)
@@ -118,6 +119,7 @@ namespace DatenbankFHModell
         private void InsertGebaeudeData(object sender, List<Gebaeudeentity> list)
         {
             Grid_MainDataGrid.Columns.Clear();
+            Grid_MainDataGrid.Items.Clear();
             AddColumnatRuntime("Gebaeudenummer", "Gebaeudenummer");
             foreach (Gebaeudeentity item in list)
             {
@@ -128,6 +130,7 @@ namespace DatenbankFHModell
         private void InsertStudentData(object sender, List<Studententity> list)
         {
             Grid_MainDataGrid.Columns.Clear();
+            Grid_MainDataGrid.Items.Clear();
             AddColumnatRuntime("Matrikelnummer", "Matrikelnummer");
             AddColumnatRuntime("Name", "Studentname");
             AddColumnatRuntime("Wohnort", "StudentWohnort");
@@ -142,6 +145,7 @@ namespace DatenbankFHModell
         private void InsertLehrendeData(object sender, List<Lehrendeentity> list)
         {
             Grid_MainDataGrid.Columns.Clear();
+            Grid_MainDataGrid.Items.Clear();
             AddColumnatRuntime("Personalnummer", "Personalnummer");
             AddColumnatRuntime("Name", "NameLehrender");
             AddColumnatRuntime("Wohnort", "WohnortLehrender");
@@ -158,6 +162,7 @@ namespace DatenbankFHModell
         private void InsertLehrveranstaltungsData(object sender, List<Lehrveranstaltungentity> list)
         {
             Grid_MainDataGrid.Columns.Clear();
+            Grid_MainDataGrid.Items.Clear();
             AddColumnatRuntime("Lehrveranstaltungsnummer", "Lehrveranstaltungsnummer");
             AddColumnatRuntime("Lehrveranstaltungsname", "Lehrveranstaltungsname");
             AddColumnatRuntime("Datum", "Lehrveranstaltungsdate");
@@ -171,6 +176,7 @@ namespace DatenbankFHModell
         private void InsertRaumData(object sender, List<Raumentity> list)
         {
             Grid_MainDataGrid.Columns.Clear();
+            Grid_MainDataGrid.Items.Clear();
             AddColumnatRuntime("Raumnummer", "Raumnummer");
             AddColumnatRuntime("Gebäudenummer", "Gebaeudenummer");
             foreach (Raumentity item in list)
@@ -207,6 +213,7 @@ namespace DatenbankFHModell
         {
             List<Student_has_Lehrveranstaltungentity> list = TheDBManager.PullStudent_has_Lehrveranstaltung();
             Grid_MainDataGrid.Columns.Clear();
+            Grid_MainDataGrid.Items.Clear();
             AddColumnatRuntime("Matrikelnummer", "Student_Matrikelnummer");
             AddColumnatRuntime("Name", "Studentname");
             AddColumnatRuntime("Lehrveranstaltungsnummer", "Lehrveranstaltung_Lehrveranstaltungsnummer");
@@ -229,6 +236,7 @@ namespace DatenbankFHModell
         {
             List<Lehrende_has_Lehrveranstaltungentity> list = TheDBManager.PullLehrende_has_Lehrveranstaltungentity();
             Grid_MainDataGrid.Columns.Clear();
+            Grid_MainDataGrid.Items.Clear();
             AddColumnatRuntime("Personalnummer", "Lehrende_Personalnummer");
             AddColumnatRuntime("Name", "NameLehrender");
             AddColumnatRuntime("Lehrveranstaltungsnummer", "Lehrveranstaltung_Lehrveranstaltungsnummer");
@@ -237,6 +245,29 @@ namespace DatenbankFHModell
             AddColumnatRuntime("Einheit", "Einheit");
 
             foreach (Lehrende_has_Lehrveranstaltungentity item in list)
+            {
+                Grid_MainDataGrid.Items.Add(item);
+            }
+        }
+
+        private void btn_Lehrveranstaltung_has_raum_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Lehrveranstaltung_has_raum_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            List<Lehrveranstaltung_has_raumentity> list = TheDBManager.PullLehrveranstaltung_has_raumentity();
+            Grid_MainDataGrid.Columns.Clear();
+            Grid_MainDataGrid.Items.Clear();
+            AddColumnatRuntime("Lehrveranstaltungsnsummer", "Lehrveranstaltung_Lehrveranstaltungsnsummer");
+            AddColumnatRuntime("Lehrveranstaltungsname", "Lehrveranstaltungsname");
+            AddColumnatRuntime("Lehrveranstaltungsdate", "Lehrveranstaltungsdate");
+            AddColumnatRuntime("Einheit", "Einheit");
+            AddColumnatRuntime("Raumnummer", "Raum_Raumnummer");
+            AddColumnatRuntime("Gebaeudenummer", "Raum_Gebaeude_Gebaeudenummer");
+
+            foreach (Lehrveranstaltung_has_raumentity item in list)
             {
                 Grid_MainDataGrid.Items.Add(item);
             }
