@@ -5,15 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatenbankFHModell"
         mc:Ignorable="d"
-        Title="Fakultät" Height="170" Width="200" WindowStyle="None">
-    <Grid>
-        <StackPanel Background="LightGray">
-            <Label>Name der Fakultät:</Label>
-            <TextBox x:Name="txt_FakName"></TextBox>
-            <Label>Fakultätnummer:</Label>
-            <TextBox x:Name="txt_FakNr"></TextBox>
-            <Button Height="25" Margin="0,10,0,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
-            <Button Height="25" Margin="0,10,0,0" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>
+        Title="Fakultät" Height="370" Width="500" WindowStyle="None">
+    <Grid Background="LightGray" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="10">
+            <Label Background="Gray" BorderBrush="White" BorderThickness="1" Height="20" Foreground="White" Padding="5,0">Fakultäten:</Label>
+            <DataGrid x:Name="Dat_Order" IsReadOnly="True" ItemsSource="{Binding ProductionOrderRecipe}" Background="Transparent" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Fakultätnummer:" Width="130" SortDirection="Ascending" CanUserSort="False" Binding="{Binding Position}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Fakultätname:" CanUserSort="False" Width="*" Binding="{Binding Lable}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1">
+            <Label Margin="0,10,0,-2">Name der Fakultät:</Label>
+            <TextBox Margin="5,0,5,0" x:Name="txt_FakName"></TextBox>
+            <Label Margin="0,5,0,-2">Fakultätnummer:</Label>
+            <TextBox Margin="5,0,5,0" x:Name="txt_FakNr"></TextBox>
+            <Button Height="25" Margin="20,10,20,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
+            <Button Height="25" Margin="20,10,20,0" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>
         </StackPanel>
     </Grid>
 </Window>
