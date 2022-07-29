@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatenbankFHModell"
         mc:Ignorable="d"
-        Title="Student_has_Lehrveranstaltung" Height="450" Width="800">
-    <Grid>
-        
+        Title="Student - Lehrveranstaltung" Height="200" MinHeight="200" Width="250">
+    <Grid Background="LightGray">
+        <StackPanel Margin="5">
+            <Label>Matrikelnnummer:</Label>
+            <TextBox x:Name="txt_Matrikelnnummer"></TextBox>
+            <Label>Lehrveranstaltungsnummer:</Label>
+            <TextBox x:Name="txt_Lehrveranstaltungsnummer"></TextBox>
+            <Button Height="25" Margin="0,10,0,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
+            <Button Height="25" Margin="0,10,0,0" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>
+        </StackPanel>
     </Grid>
 </Window>

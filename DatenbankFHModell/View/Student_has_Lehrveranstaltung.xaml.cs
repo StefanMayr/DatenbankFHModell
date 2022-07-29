@@ -19,9 +19,28 @@ namespace DatenbankFHModell
     /// </summary>
     public partial class Student_has_Lehrveranstaltung : Window
     {
-        public Student_has_Lehrveranstaltung()
+        DBManager TheDbManager;
+        public Student_has_Lehrveranstaltung(DBManager thedbmanager)
         {
             InitializeComponent();
+            TheDbManager = thedbmanager;
+        }
+
+        private void btn_Insert_Click(object sender, RoutedEventArgs e)
+        {
+            if(int.TryParse(txt_Lehrveranstaltungsnummer.Text, out int id) && int.TryParse(txt_Matrikelnnummer.Text, out int id2))
+            {
+                TheDbManager.PushStudenthatLehrverantaltung(id2, id);
+            }
+            else
+            {
+                MessageBox.Show("Fehler bei der Eingabe");
+            }
+        }
+
+        private void btn_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
         }
     }
 }
