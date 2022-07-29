@@ -34,9 +34,14 @@ namespace DatenbankFHModell
             if(int.TryParse(txt_Gebaude.Text, out int id))
             {
                 TheDBManager.PushGebaeude(Convert.ToInt32(txt_Gebaude.Text));
+                MessageBox.Show("Eingabe war erfolgreich");
+                ClearWindow();
+                this.Hide();
             }
-            this.Hide();
-            ClearWindow();
+            else
+            {
+                MessageBox.Show("Falsche Eingabe!");
+            }
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)

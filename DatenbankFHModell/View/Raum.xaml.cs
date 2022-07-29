@@ -33,12 +33,25 @@ namespace DatenbankFHModell
             if (TheDBManager != null && txt_Raumnummer.Text != "" && txt_Gebäudenummer.Text != "" && int.TryParse(txt_Raumnummer.Text, out int result) && int.TryParse(txt_Gebäudenummer.Text, out int result2))
             {
                 TheDBManager.PushRaum(Convert.ToInt32(txt_Raumnummer.Text), Convert.ToInt32(txt_Gebäudenummer.Text));
+                MessageBox.Show("Eingabe war erfolgreich");
+                ClearWindow();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Falsche Eingabe!");
             }
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
+        }
+
+        private void ClearWindow()
+        {
+            txt_Gebäudenummer.Text = "";
+            txt_Raumnummer.Text = "";
         }
     }
 }

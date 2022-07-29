@@ -30,8 +30,17 @@ namespace DatenbankFHModell
 
         private void btn_Insert_Click(object sender, RoutedEventArgs e)
         {
-           TheDBManager.PushLehrender(Convert.ToInt32(txt_Pers.Text), txt_Name.Text, txt_Wohnort.Text, Convert.ToInt32(txt_Alter.Text), txt_Ausbildung.Text, txt_Geschl.Text ,Convert.ToInt32(txt_Fakultät.Text));
-            ClearWindow();
+            if (int.TryParse(txt_Pers.Text, out int id) && int.TryParse(txt_Alter.Text, out int id2) && int.TryParse(txt_Fakultät.Text, out int id3))
+            {
+                TheDBManager.PushLehrender(Convert.ToInt32(txt_Pers.Text), txt_Name.Text, txt_Wohnort.Text, Convert.ToInt32(txt_Alter.Text), txt_Ausbildung.Text, txt_Geschl.Text, Convert.ToInt32(txt_Fakultät.Text));
+                MessageBox.Show("Eingabe war erfolgreich");
+                ClearWindow();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Falsche Eingabe!");
+            }
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
