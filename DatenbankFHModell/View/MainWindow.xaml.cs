@@ -205,7 +205,41 @@ namespace DatenbankFHModell
 
         private void btn_Student_has_Lehrveranstaltung_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            List<object> list = TheDBManager.PullStudent_has_Lehrveranstaltung();
+            List<Student_has_Lehrveranstaltungentity> list = TheDBManager.PullStudent_has_Lehrveranstaltung();
+            Grid_MainDataGrid.Columns.Clear();
+            AddColumnatRuntime("Matrikelnummer", "Student_Matrikelnummer");
+            AddColumnatRuntime("Name", "Studentname");
+            AddColumnatRuntime("Lehrveranstaltungsnummer", "Lehrveranstaltung_Lehrveranstaltungsnummer");
+            AddColumnatRuntime("Lehrveranstaltungsname", "Lehrveranstaltungsname");
+            AddColumnatRuntime("Lehrveranstaltungsdatum", "Lehrveranstaltungsdate");
+            AddColumnatRuntime("Einheit", "Einheit");
+
+            foreach(Student_has_Lehrveranstaltungentity item in list)
+            {
+                Grid_MainDataGrid.Items.Add(item);
+            }
+        }
+
+        private void btn_Lehrende_has_Lehrveranstaltung_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Lehrende_has_Lehrveranstaltung_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            List<Lehrende_has_Lehrveranstaltungentity> list = TheDBManager.PullLehrende_has_Lehrveranstaltungentity();
+            Grid_MainDataGrid.Columns.Clear();
+            AddColumnatRuntime("Personalnummer", "Lehrende_Personalnummer");
+            AddColumnatRuntime("Name", "NameLehrender");
+            AddColumnatRuntime("Lehrveranstaltungsnummer", "Lehrveranstaltung_Lehrveranstaltungsnummer");
+            AddColumnatRuntime("Lehrveranstaltungsname", "Lehrveranstaltungsname");
+            AddColumnatRuntime("Lehrveranstaltungsdatum", "Lehrveranstaltungsdate");
+            AddColumnatRuntime("Einheit", "Einheit");
+
+            foreach (Lehrende_has_Lehrveranstaltungentity item in list)
+            {
+                Grid_MainDataGrid.Items.Add(item);
+            }
         }
     }
 }

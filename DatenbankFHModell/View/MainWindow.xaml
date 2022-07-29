@@ -77,7 +77,7 @@
                 <Border  Height="150" Margin="0,5,0,5" CornerRadius="5" BorderThickness="1" BorderBrush="Black">
                     <StackPanel>
                         <Label  FontSize="14">Daten verknüpfen:</Label>
-                        <Button Margin="5,0,5,5" x:Name="btn_">Lehrenden einer Lehrveranstaltung zuweisen</Button>
+                        <Button Margin="5,0,5,5" x:Name="btn_Lehrende_has_Lehrveranstaltung" Click="btn_Lehrende_has_Lehrveranstaltung_Click" MouseRightButtonDown="btn_Lehrende_has_Lehrveranstaltung_MouseRightButtonDown">Lehrenden einer Lehrveranstaltung zuweisen</Button>
                         <Button Margin="5,0,5,5" x:Name="btn_Student_has_Lehrveranstaltung" Click="btn_Student_has_Lehrveranstaltung_Click" MouseRightButtonDown="btn_Student_has_Lehrveranstaltung_MouseRightButtonDown">Student einer Lehrveranstaltung zuweisen</Button>
                         <Button Margin="5,0,5,0">Lehrveranstaltung einem Raum zuweisen</Button>
                     </StackPanel>

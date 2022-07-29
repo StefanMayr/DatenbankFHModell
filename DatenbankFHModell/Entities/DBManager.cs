@@ -477,7 +477,7 @@ namespace DatenbankFHModell
         /// Pull ZOT Lehrende_has_Lehrveranstaltungentity Data from DB
         /// </summary>
         /// <returns></returns>
-        public List<Lehrende_has_Lehrveranstaltungentity> PullLehrende_has_Lehrveranstaltugn()
+        public List<Lehrende_has_Lehrveranstaltungentity> PullLehrende_has_Lehrveranstaltung()
         {
             List<Lehrende_has_Lehrveranstaltungentity> list = new List<Lehrende_has_Lehrveranstaltungentity>();
 
@@ -966,13 +966,9 @@ namespace DatenbankFHModell
             }
         }
 
-        public List<object> PullStudent_has_Lehrveranstaltung()
+        public List<Student_has_Lehrveranstaltungentity> PullStudent_has_Lehrveranstaltung()
         {
-            List<object> list = new List<object>();
-            //List<T> list = new List<T>();
-            List<Studententity> students = new List<Studententity>();
             List<Student_has_Lehrveranstaltungentity> studenthassome = new List<Student_has_Lehrveranstaltungentity>();
-            List<Lehrveranstaltungentity> lehrveranstaltung = new List<Lehrveranstaltungentity>();
 
             if (this.OpenConnection() == true)
             {
@@ -1015,19 +1011,69 @@ namespace DatenbankFHModell
                     {
                         Einheit = dataReader.GetInt16(5);
                     }
-                    students.Add(new Studententity(NameStudent));
-                    studenthassome.Add(new Student_has_Lehrveranstaltungentity(Matrikelnummer, Lehrveranstaltung_Lehrveranstaltungsnummer));
-                    lehrveranstaltung.Add(new Lehrveranstaltungentity(NameLehrv, Date, Einheit));
-                    list.Add(students);
-                    list.Add(studenthassome);
-                    list.Add(lehrveranstaltung);
+                    studenthassome.Add(new Student_has_Lehrveranstaltungentity(NameStudent , Matrikelnummer, Lehrveranstaltung_Lehrveranstaltungsnummer, NameLehrv, Date, Einheit));
                 }
 
             }
             //close Connection
             this.CloseConnection();
 
-            return list;
+            return studenthassome;
+        }
+
+        public List<Lehrende_has_Lehrveranstaltungentity> PullLehrende_has_Lehrveranstaltungentity()
+        {
+            List<Lehrende_has_Lehrveranstaltungentity> Lehrendelist = new List<Lehrende_has_Lehrveranstaltungentity>();
+
+            if (this.OpenConnection() == true)
+            {
+                string query = "Select lehrende_has_lehrveranstaltung.Lehrende_Personalnummer, mydb.lehrende.NameLehrender, lehrende_has_lehrveranstaltung.Lehrveranstaltung_Lehrveranstaltungsnummer, mydb.lehrveranstaltung.NameLehrveranstaltung, mydb.lehrveranstaltung.DatumLehrveranstaltung, mydb.lehrveranstaltung.Einheit from (mydb.lehrende inner join mydb.lehrende_has_lehrveranstaltung on lehrende_has_lehrveranstaltung.Lehrende_Personalnummer = lehrende.Personalnummer) inner join mydb.lehrveranstaltung on mydb.lehrveranstaltung.Lehrveranstaltungsnummer = mydb.lehrende_has_lehrveranstaltung.Lehrveranstaltung_Lehrveranstaltungsnummer";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int Personalnummer = 0;
+                string NameLehrender = "";
+                int Lehrveranstaltung_Lehrveranstaltungsnummer = 0;
+                string NameLehrv = "";
+                DateTime Date = DateTime.Now;
+                int Einheit = 0;
+
+                while (dataReader.Read())
+                {
+                    if (!dataReader.IsDBNull(0))
+                    {
+                        Personalnummer = dataReader.GetInt16(0);
+                    }
+                    if (!dataReader.IsDBNull(1))
+                    {
+                        NameLehrender = dataReader.GetString(1);
+                    }
+                    if (!dataReader.IsDBNull(2))
+                    {
+                        Lehrveranstaltung_Lehrveranstaltungsnummer = dataReader.GetInt16(2);
+                    }
+                    if (!dataReader.IsDBNull(3))
+                    {
+                        NameLehrv = dataReader.GetString(3);
+                    }
+                    if (!dataReader.IsDBNull(4))
+                    {
+                        Date = dataReader.GetDateTime(4);
+                    }
+                    if (!dataReader.IsDBNull(5))
+                    {
+                        Einheit = dataReader.GetInt16(5);
+                    }
+                    Lehrendelist.Add(new Lehrende_has_Lehrveranstaltungentity(NameLehrender, Personalnummer, Lehrveranstaltung_Lehrveranstaltungsnummer, NameLehrv, Date, Einheit));
+                }
+
+            }
+            //close Connection
+            this.CloseConnection();
+
+            return Lehrendelist;
         }
 
 
