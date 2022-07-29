@@ -209,7 +209,7 @@ namespace DatenbankFHModell
 
         private void btn_Student_has_Lehrveranstaltung_Click(object sender, RoutedEventArgs e)
         {
-
+            TheEvents.StartStudent_has_L(sender, e);
         }
 
         private void btn_Student_has_Lehrveranstaltung_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -236,7 +236,7 @@ namespace DatenbankFHModell
 
         private void btn_Lehrende_has_Lehrveranstaltung_Click(object sender, RoutedEventArgs e)
         {
-
+            TheEvents.StartLehrende_has_L(sender, e);
         }
 
         private void btn_Lehrende_has_Lehrveranstaltung_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -263,7 +263,7 @@ namespace DatenbankFHModell
 
         private void btn_Lehrveranstaltung_has_raum_Click(object sender, RoutedEventArgs e)
         {
-
+            TheEvents.StartLehrv_has_R(sender, e);
         }
 
         private void btn_Lehrveranstaltung_has_raum_MouseRightButtonDown(object sender, MouseButtonEventArgs e)

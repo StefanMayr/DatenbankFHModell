@@ -16,6 +16,9 @@ namespace DatenbankFHModell
         public event EventHandler StartLehhrveranstaltungpageRequested;
         public event EventHandler StartRaumpageRequested;
         public event EventHandler StartLehrveranstaltungRequested;
+        public event EventHandler StartStudent_has_LRequested;
+        public event EventHandler StartLehrende_has_LRequested;
+        public event EventHandler StartLehrv_has_RRequested;
 
         //Download Data
         public event EventHandler DownloadFakultaetDataRequested;
@@ -158,5 +161,19 @@ namespace DatenbankFHModell
             SendLehrveranstaltung_has_RaumDataRequested(sender, list);
         }
 
+        public void StartStudent_has_L(object sender, EventArgs e)
+        {
+            StartStudent_has_LRequested(sender, e);
+        }
+
+        public void StartLehrende_has_L(object sender, EventArgs e)
+        {
+            StartLehrende_has_LRequested(sender, e);
+        }
+
+        public void StartLehrv_has_R(object sender, EventArgs e)
+        {
+            StartLehrv_has_RRequested(sender, e);
+        }
     }
 }

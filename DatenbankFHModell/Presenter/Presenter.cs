@@ -19,7 +19,12 @@ namespace DatenbankFHModell
         Lehrveranstaltungsclass TheLehrveranstaltungsclassPage;
         Raum TheRaumpage;
 
-        public Presenter(Eventclass theevents, DBManager thedbmanager, MainWindow themainwindow, Student thestudentpage, Fakultät thefakultät, Gebaeude thegebaeudepage, Lehrendeclass thelehrendenpage, Lehrveranstaltungsclass thelehrveranstaltungspage, Raum theraumpage)
+        Student_has_Lehrveranstaltung TheStudent_h_LPage;
+        Lehrender_has_Lehrveranstaltung TheLehrenden_h_LPage;
+        Lehrveranstaltung_has_Raum TheLehrver_h_RPage;
+
+
+        public Presenter(Eventclass theevents, DBManager thedbmanager, MainWindow themainwindow, Student thestudentpage, Fakultät thefakultät, Gebaeude thegebaeudepage, Lehrendeclass thelehrendenpage, Lehrveranstaltungsclass thelehrveranstaltungspage, Raum theraumpage, Student_has_Lehrveranstaltung _theStudent_h_LPage, Lehrender_has_Lehrveranstaltung _theLehrenden_h_LPage, Lehrveranstaltung_has_Raum _theLehrver_h_RPage)
         {
             TheDBManager = thedbmanager;
             TheStudentPAge = thestudentpage;
@@ -31,6 +36,10 @@ namespace DatenbankFHModell
 
             TheEvent = theevents;
             MainWindow = themainwindow;
+
+            TheStudent_h_LPage = _theStudent_h_LPage;
+            TheLehrenden_h_LPage = _theLehrenden_h_LPage;
+            TheLehrver_h_RPage = _theLehrver_h_RPage;
 
             TheEvent.StartStudentRequested += StartStudentPage;
             TheEvent.StartFakultätRequested += StartFakultät;
@@ -47,6 +56,9 @@ namespace DatenbankFHModell
             TheEvent.DownloadStudent_has_LehrveranstaltungDataRequested += DownloadStudent_has_LehrveranstaltungsData;
             TheEvent.DownloadLehrende_has_LehrveranstaltungDataRequested += DownloadLehrende_has_LehrveranstaltungsData;
             TheEvent.DownloadLehrveranstaltung_has_RaumDataRequested += DownloadLehrveranstaltung_has_raumData;
+            TheEvent.StartStudent_has_LRequested += StartStudent_has_Lerhv;
+            TheEvent.StartLehrende_has_LRequested += StartLehrende_has_Lerhv;
+            TheEvent.StartLehrv_has_RRequested += StartLehrver_has_Raum;
         }
 
         private void StartStudentPage(object sender, EventArgs e)
@@ -131,6 +143,21 @@ namespace DatenbankFHModell
         {
             List<Lehrveranstaltung_has_raumentity> list = TheDBManager.PullLehrveranstaltung_has_raumentity();
             TheEvent.SendLehrveranstaltung_has_RaumData(sender, list);
+        }
+
+        private void StartStudent_has_Lerhv(object sender, EventArgs e)
+        {
+            TheStudent_h_LPage.ShowDialog();
+        }
+
+        private void StartLehrende_has_Lerhv(object sender, EventArgs e)
+        {
+            TheLehrenden_h_LPage.ShowDialog();
+        }
+
+        private void StartLehrver_has_Raum(object sender, EventArgs e)
+        {
+            TheLehrver_h_RPage.ShowDialog();
         }
     }
 }

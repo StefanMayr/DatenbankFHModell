@@ -298,7 +298,7 @@ namespace DatenbankFHModell
         /// <param name="NameFakultaet"></param>
         public void PushLehrendehatLehrveranstaltung(int Personalnummer, int Fakultaetnummer, int Lehrveranstaltungsnummer)
         {
-            string query = "INSERT INTO Lehrende_has_Lehrveranstaltung(Personalnummer,Fakultätnummer,Lehrveranstaltungsnummer) VALUES (" + Personalnummer + "," + Fakultaetnummer + "," + Lehrveranstaltungsnummer + ");";
+            string query = "INSERT INTO Lehrende_has_Lehrveranstaltung(Lehrende_Personalnummer,Lehrende_Fakultät_Fakultätnummer,Lehrveranstaltung_Lehrveranstaltungsnummer) VALUES (" + Personalnummer + "," + Fakultaetnummer + "," + Lehrveranstaltungsnummer + ");";
             Insert(query);
         }
 
@@ -310,7 +310,7 @@ namespace DatenbankFHModell
         /// <param name="Gebaeudenummer"></param>
         public void PushLehrveranstaltunghatRaum(int Lehrveranstaltungsnummer, int Raumnummer, int Gebaeudenummer)
         {
-            string query = "INSERT INTO Lehrveranstaltung_has_raum(Lehrveranstaltungsnummer,Raumnummer,Gebaeudenummer) VALUES (" + Lehrveranstaltungsnummer + "," + Raumnummer + "," + Gebaeudenummer + ");";
+            string query = "INSERT INTO Lehrveranstaltung_has_raum(Lehrveranstaltung_Lehrveranstaltungsnummer,Raum_Raumnummer,Raum_Gebaeude_Gebaeudenummer) VALUES (" + Lehrveranstaltungsnummer + "," + Raumnummer + "," + Gebaeudenummer + ");";
             Insert(query);
         }
 
@@ -332,7 +332,7 @@ namespace DatenbankFHModell
         /// <param name="Lehrveranstaltungsnummer"></param>
         public void PushStudenthatLehrverantaltung(int Matrikelnummer, int Lehrveranstaltungsnummer)
         {
-            string query = "INSERT INTO Student_has_lehrveranstaltung(Matrikelnummer,Lehrveranstaltungsnummer) VALUES (" + Matrikelnummer + "," + Lehrveranstaltungsnummer + ");";
+            string query = "INSERT INTO Student_has_lehrveranstaltung(Student_Matrikelnummer,Lehrveranstaltung_Lehrveranstaltungsnummer) VALUES (" + Matrikelnummer + "," + Lehrveranstaltungsnummer + ");";
             Insert(query);
         }
 

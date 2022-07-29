@@ -31,6 +31,9 @@ namespace DatenbankFHModell
             if(int.TryParse(txt_Lehrveranstaltungsnummer.Text, out int id) && int.TryParse(txt_Matrikelnnummer.Text, out int id2))
             {
                 TheDbManager.PushStudenthatLehrverantaltung(id2, id);
+                MessageBox.Show("Eingabe war erfolgreich");
+                ClearWindow();
+                this.Hide();
             }
             else
             {
@@ -41,6 +44,12 @@ namespace DatenbankFHModell
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
+        }
+
+        private void ClearWindow()
+        {
+            txt_Lehrveranstaltungsnummer.Text = "";
+            txt_Matrikelnnummer.Text = "";
         }
     }
 }
