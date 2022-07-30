@@ -71,11 +71,12 @@ namespace DatenbankFHModell
             txt_Lehrveranstaltungsname.Text = Convert.ToString(e.Lehrveranstaltungsname);
             txt_Lehrveranstaltungsnummer.Text = Convert.ToString(e.Lehrveranstaltungsnummer);
             txt_Einheit.Text = Convert.ToString(e.Einheit);
+            Dtp_Datetime.Text = Convert.ToString(e.Einheit);
         }
 
         private void btn_update_Click(object sender, RoutedEventArgs e)
         {
-            //TheDBManager.Update_Lehrveranstaltung(Convert.ToInt16(txt_Lehrveranstaltungsnummer.Text), txt_Lehrveranstaltungsname.Text, , Convert.ToInt16(txt_Einheit.Text));
+            TheDBManager.Update_Lehrveranstaltung(Convert.ToInt16(txt_Lehrveranstaltungsnummer.Text), txt_Lehrveranstaltungsname.Text, Convert.ToDateTime(Dtp_Datetime.Text), Convert.ToInt16(txt_Einheit.Text));
         }
     }
 

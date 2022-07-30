@@ -263,7 +263,7 @@ namespace DatenbankFHModell
         /// <param name="Einheit"></param>
         public void PushLehrveranstaltung(int Lehrveranstaltungsnummer,string NameLehrveranstaltung, DateTime Datum, int Einheit)
         {
-            string query = "INSERT INTO Lehrveranstaltung(Lehrverantaltungsnummer,NameLehrveranstaltung,DatumLehrveranstaltung,Einheit) VALUES (" + Lehrveranstaltungsnummer + ",'" + NameLehrveranstaltung + ",'" + Datum.ToString("yyyy-MM-dd H:mm:ss") + "'," + Einheit + ");";
+            string query = "INSERT INTO Lehrveranstaltung(Lehrverantaltungsnummer,NameLehrveranstaltung,DatumLehrveranstaltung,Einheit) VALUES (" + Lehrveranstaltungsnummer + ",'" + NameLehrveranstaltung + "','" + Datum.ToString("yyyy-MM-dd HH:mm:ss") + "' AS DATE," + Einheit + ");";
             Insert(query);
         }
 
