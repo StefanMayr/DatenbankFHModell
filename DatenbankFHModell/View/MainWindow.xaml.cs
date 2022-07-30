@@ -311,7 +311,7 @@ namespace DatenbankFHModell
                         fakList.Add(fak);
                         TheEvents.LoadFakultaEntity(sender, fak);
                         TheEvents.SendStartFakultät(sender, e);
-
+                        TheEvents.DownloadFakultaetData(sender, e);
                         break;
                     }
                 case '2':

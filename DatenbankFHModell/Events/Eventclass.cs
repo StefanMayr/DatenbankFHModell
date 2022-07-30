@@ -43,6 +43,7 @@ namespace DatenbankFHModell
         //Daten in Fenster laden
         public event EventHandler<Fakultaetentity> LoadFakultaEntityRequested;
         public event EventHandler<Fakultaetentity> InsertNewFakultaEntity_requ;
+        
 
 
         public void SendStartStudent(object sender, EventArgs e)

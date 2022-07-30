@@ -46,6 +46,19 @@ namespace DatenbankFHModell
             }
         }
 
+        //alter Buttonname
+        private void btn_actualice_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //alter Buttonname
+        private void btn_Load_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
@@ -58,13 +71,11 @@ namespace DatenbankFHModell
             txt_FakName.Text = "";
         }
 
-        private void btn_Load_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        //Datn an DBManagerübergeben und Löschen
         private void btn_Drop_Click(object sender, RoutedEventArgs e)
         {
+            TheDBManager.DeleteFakultaet(Convert.ToInt16(txt_FakNr.Text));
+            ClearWindow();
 
         }
 
@@ -72,6 +83,13 @@ namespace DatenbankFHModell
         {
             txt_FakName.Text = e.Fakultaetname;
             txt_FakNr.Text = Convert.ToString(e.Fakultaetnummer);
+        }
+
+
+        //Daten an DBManager übergeben und überprüfen ob vorhanden, sonst erstellen oder updaten
+        private void btn_update_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatenbankFHModell"
         mc:Ignorable="d"
-        Title="Fakultät" Height="170" Width="250" WindowStyle="None">
+        Title="Fakultät" Height="190" Width="270" WindowStyle="None">
     <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="125"/>
-            <ColumnDefinition Width="125"/>
+            <ColumnDefinition Width="135"/>
+            <ColumnDefinition Width="135"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
@@ -27,7 +27,7 @@
         <TextBox Grid.Row="4" Grid.ColumnSpan="2" x:Name="txt_FakNr" Margin="3"></TextBox>
         <Button Grid.Row="5" Height="25" Margin="5,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
         <Button Grid.Row="6" Grid.Column="1" Margin="5" Height="25" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>
-        <Button Grid.Row="6" Height="25" Margin="5" x:Name="btn_Load" Click="btn_Load_Click">Laden</Button>
+        <Button Grid.Row="6" Height="25" Margin="5" x:Name="btn_update" Click="btn_update_Click">Aktualisieren</Button>
         <Button Grid.Row="5" Grid.Column="1" Height="25" Margin="5,0" x:Name="btn_Drop" Click="btn_Drop_Click">Entfernen</Button>
     </Grid>
 </Window>
