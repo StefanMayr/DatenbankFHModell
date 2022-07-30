@@ -43,7 +43,22 @@ namespace DatenbankFHModell
         //Daten in Fenster laden
         public event EventHandler<Fakultaetentity> LoadFakultaEntityRequested;
         public event EventHandler<Fakultaetentity> InsertNewFakultaEntity_requ;
-        
+
+        public event EventHandler<Gebaeudeentity> LoadGebaeudeEntityRequested;
+        public event EventHandler<Gebaeudeentity> InsertNewGebaeudeEntity_requ;
+
+        public event EventHandler<Studententity> LoadStudentEntityRequested;
+        public event EventHandler<Studententity> InsertNewStudentEntity_requ;
+
+        public event EventHandler<Lehrendeentity> LoadLehrendeEntityRequested;
+        public event EventHandler<Lehrendeentity> InsertNewLehrendeEntity_requ;
+
+        public event EventHandler<Lehrveranstaltungentity> LoadLehrveranstaltungEntityRequested;
+        public event EventHandler<Lehrveranstaltungentity> InsertNewLehrveranstaltungEntity_requ;
+
+        public event EventHandler<Raumentity> LoadRaumEntityRequested;
+        public event EventHandler<Raumentity> InsertNewRaumEntity_requ;
+
 
 
         public void SendStartStudent(object sender, EventArgs e)
@@ -188,7 +203,52 @@ namespace DatenbankFHModell
 
         public void InsertNewFakultaEntity(object sender, Fakultaetentity e)
         {
-            InsertNewFakultaEntity_requ(sender, e); 
+            InsertNewFakultaEntity_requ(sender, e);
+        }
+        public void LoadGebaeudeEntity(object sender, Gebaeudeentity e)
+        {
+            LoadGebaeudeEntityRequested(sender, e);
+        }
+
+        public void InsertNewGebaeudeEntity(object sender, Gebaeudeentity e)
+        {
+            InsertNewGebaeudeEntity_requ(sender, e);
+        }
+        public void LoadStudentEntity(object sender, Studententity e)
+        {
+            LoadStudentEntityRequested(sender, e);
+        }
+
+        public void InsertNewStudentEntity(object sender, Studententity e)
+        {
+            InsertNewStudentEntity_requ(sender, e);
+        }
+        public void LoadLehrendeEntity(object sender, Lehrendeentity e)
+        {
+            LoadLehrendeEntityRequested(sender, e);
+        }
+
+        public void InsertNewLehrendeEntity(object sender, Lehrendeentity e)
+        {
+            InsertNewLehrendeEntity_requ(sender, e);
+        }
+        public void LoadLehrveranstaltungEntity(object sender, Lehrveranstaltungentity e)
+        {
+            LoadLehrveranstaltungEntityRequested(sender, e);
+        }
+
+        public void InsertNewLehrveranstaltungEntity(object sender, Lehrveranstaltungentity e)
+        {
+            InsertNewLehrveranstaltungEntity_requ(sender, e);
+        }
+        public void LoadRaumEntity(object sender, Raumentity e)
+        {
+            LoadRaumEntityRequested(sender, e);
+        }
+
+        public void InsertNewRaumEntity(object sender, Raumentity e)
+        {
+            InsertNewRaumEntity_requ(sender, e);
         }
     }
 }

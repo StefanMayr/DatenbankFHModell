@@ -5,25 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatenbankFHModell"
         mc:Ignorable="d"
-        Title="Lehrende" Height="420" MinHeight="420" Width="220">
+        Title="Lehrende" Height="450" MinHeight="420" Width="270">
     <Grid Background="LightGray">
-        <StackPanel Margin="5">
-            <Label>Name:</Label>
-            <TextBox x:Name="txt_Name"></TextBox>
-            <Label>Personalnummer:</Label>
-            <TextBox x:Name="txt_Pers"></TextBox>
-            <Label>Wohnort:</Label>
-            <TextBox x:Name="txt_Wohnort"></TextBox>
-            <Label>Geschlecht:</Label>
-            <TextBox x:Name="txt_Geschl"></TextBox>
-            <Label>Alter:</Label>
-            <TextBox x:Name="txt_Alter"></TextBox>
-            <Label>Ausbildung:</Label>
-            <TextBox x:Name="txt_Ausbildung"></TextBox>
-            <Label>Fakultätnummer:</Label>
-            <TextBox x:Name="txt_Fakultät"></TextBox>
-            <Button Height="25" Margin="0,10,0,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
-            <Button Height="25" Margin="0,10,0,0" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="135"/>
+            <ColumnDefinition Width="135"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+            <Label Grid.Row="1" VerticalAlignment="Bottom">Name:</Label>
+        <TextBox  Grid.Row="2" Grid.ColumnSpan="2" Margin="3" x:Name="txt_Name"></TextBox>
+            <Label Grid.Row="3" VerticalAlignment="Bottom">Personalnummer:</Label>
+        <TextBox  Grid.Row="4" Grid.ColumnSpan="2" Margin="3" x:Name="txt_Pers"></TextBox>
+            <Label Grid.Row="5" VerticalAlignment="Bottom">Wohnort:</Label>
+        <TextBox  Grid.Row="6" Grid.ColumnSpan="2" Margin="3" x:Name="txt_Wohnort"></TextBox>
+            <Label Grid.Row="7" VerticalAlignment="Bottom">Geschlecht:</Label>
+        <TextBox  Grid.Row="8" Grid.ColumnSpan="2" Margin="3" x:Name="txt_Geschl"></TextBox>
+            <Label Grid.Row="9" VerticalAlignment="Bottom">Alter:</Label>
+        <TextBox  Grid.Row="10" Grid.ColumnSpan="2" Margin="3" x:Name="txt_Alter"></TextBox>
+            <Label Grid.Row="11" VerticalAlignment="Center">Ausbildung:</Label>
+        <TextBox  Grid.Row="12" Grid.ColumnSpan="2" Margin="3" x:Name="txt_Ausbildung"></TextBox>
+            <Label Grid.Row="13" VerticalAlignment="Bottom">Fakultätnummer:</Label>
+        <TextBox  Grid.Row="14" Grid.ColumnSpan="2" Margin="3" x:Name="txt_Fakultät"></TextBox>
+        <Button Grid.Row="15" Height="25" Margin="5,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
+        <Button Grid.Row="16" Grid.Column="1" Margin="5" Height="25" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>
+        <Button Grid.Row="16" Height="25" Margin="5" x:Name="btn_update" Click="btn_update_Click">Aktualisieren</Button>
+        <Button Grid.Row="15" Grid.Column="1" Height="25" Margin="5,0" x:Name="btn_Drop" Click="btn_Drop_Click">Entfernen</Button>
     </Grid>
 </Window>

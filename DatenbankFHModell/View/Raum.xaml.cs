@@ -26,6 +26,7 @@ namespace DatenbankFHModell
             InitializeComponent();
             TheDBManager = thedbmanager;
             TheEvents = theEvents;
+            TheEvents.InsertNewRaumEntity_requ += Insert_RaumData;
         }
 
         private void btn_Insert_Click(object sender, RoutedEventArgs e)
@@ -53,6 +54,23 @@ namespace DatenbankFHModell
         {
             txt_Gebäudenummer.Text = "";
             txt_Raumnummer.Text = "";
+        }
+
+        private void btn_Drop_Click(object sender, RoutedEventArgs e)
+        {
+            TheDBManager.DeleteRaum(Convert.ToInt16(txt_Raumnummer.Text));
+            ClearWindow();
+
+        }
+        private void Insert_RaumData(object sender,Raumentity e)
+        {
+            txt_Raumnummer.Text = Convert.ToString(e.Raumnummer);
+            txt_Gebäudenummer.Text = Convert.ToString(e.Gebaeudenummer);
+        }
+
+        private void btn_update_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

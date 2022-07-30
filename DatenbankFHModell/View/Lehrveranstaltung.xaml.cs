@@ -29,6 +29,7 @@ namespace DatenbankFHModell
             InitializeComponent();
             TheDbManager = thedbmanager;
             TheEvents = theeventclass;
+            TheEvents.InsertNewLehrveranstaltungEntity_requ += Insert_LehrveranstaltungData;
         }
 
         private void btn_Insert_Click(object sender, RoutedEventArgs e)
@@ -57,6 +58,24 @@ namespace DatenbankFHModell
             txt_Lehrveranstaltungsname.Text = "";
             txt_Lehrveranstaltungsnummer.Text = "";
             txt_Einheit.Text = "";
+        }
+
+        private void btn_Drop_Click(object sender, RoutedEventArgs e)
+        {
+            TheDBManager.DeleteLehrveranstaltung(Convert.ToInt16(txt_Lehrveranstaltungsnummer.Text));
+            ClearWindow();
+
+        }
+        private void Insert_LehrveranstaltungData(object sender, Lehrveranstaltungentity e)
+        {
+            txt_Lehrveranstaltungsname.Text = Convert.ToString(e.Lehrveranstaltungsname);
+            txt_Lehrveranstaltungsname.Text = Convert.ToString(e.Lehrveranstaltungsnummer);
+            txt_Lehrveranstaltungsname.Text = Convert.ToString(e.Einheit);
+        }
+
+        private void btn_update_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

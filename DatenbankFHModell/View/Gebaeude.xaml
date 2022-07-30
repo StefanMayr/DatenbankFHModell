@@ -5,13 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatenbankFHModell"
         mc:Ignorable="d"
-        Title="Gebaeude" Height="125" Width="200" WindowStyle="None">
-    <Grid>
-        <StackPanel Background="LightGray">
-            <Label>Gebäudenummer:</Label>
-            <TextBox x:Name="txt_Gebaude"></TextBox>
-            <Button Height="25" Margin="0,10,0,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
-            <Button Height="25" Margin="0,10,0,0" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>
-        </StackPanel>
+        Title="Gebaeude" Height="130" Width="270" WindowStyle="None">
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="135"/>
+            <ColumnDefinition Width="135"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" VerticalAlignment="Bottom">Gebäudenummer:</Label>
+        <TextBox  Grid.Row="2" Grid.ColumnSpan="2" Margin="3" x:Name="txt_Gebaude"></TextBox>
+        <Button Grid.Row="3" Height="25" Margin="5,0" x:Name="btn_Insert" Click="btn_Insert_Click">Hinzufügen</Button>
+        <Button Grid.Row="4" Grid.Column="1" Margin="5" Height="25" x:Name="btn_Close" Click="btn_Close_Click">Schließen</Button>
+        <Button Grid.Row="4" Height="25" Margin="5" x:Name="btn_update" Click="btn_update_Click">Aktualisieren</Button>
+        <Button Grid.Row="3" Grid.Column="1" Height="25" Margin="5,0" x:Name="btn_Drop" Click="btn_Drop_Click">Entfernen</Button>
+        
     </Grid>
 </Window>

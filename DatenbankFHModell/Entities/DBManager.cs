@@ -675,7 +675,7 @@ namespace DatenbankFHModell
                 {
                     if (!dataReader.IsDBNull(0))
                     {
-                        MatrikelNr = dataReader.GetInt16(0);
+                        MatrikelNr = dataReader.GetInt32(0);
                     }
                     if (!dataReader.IsDBNull(1))
                     {
@@ -691,7 +691,7 @@ namespace DatenbankFHModell
                     }
                     if (!dataReader.IsDBNull(4))
                     {
-                        Alter = dataReader.GetInt16(4);
+                        Alter = dataReader.GetInt32(4);
                     }
                     list.Add(new Studententity(MatrikelNr, Name, Wohnort, Geschlecht, Alter));
                 }

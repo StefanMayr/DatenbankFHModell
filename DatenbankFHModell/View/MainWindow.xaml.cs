@@ -316,27 +316,52 @@ namespace DatenbankFHModell
                     }
                 case '2':
                     {
+                        Gebaeudeentity gebaeu = Grid_MainDataGrid.SelectedItem as Gebaeudeentity; ;
+                        List<Gebaeudeentity> gebaeuList = new List<Gebaeudeentity>();
+                        gebaeuList.Add(gebaeu);
+                        TheEvents.LoadGebaeudeEntity(sender, gebaeu);
                         TheEvents.StartGebaeude(sender, e);
+                        TheEvents.DownloadGebaeudeData(sender, e);
                         break;
                     }
                 case '3':
                     {
+                        Studententity student = Grid_MainDataGrid.SelectedItem as Studententity; ;
+                        List<Studententity> studentList = new List<Studententity>();
+                        studentList.Add(student);
+                        TheEvents.LoadStudentEntity(sender, student);
                         TheEvents.SendStartStudent(sender, e);
+                        TheEvents.DownloadStudentData(sender, e);
                         break;
                     }
                 case '4':
                     {
+                        Lehrendeentity lehrende = Grid_MainDataGrid.SelectedItem as Lehrendeentity; ;
+                        List<Lehrendeentity> lehrendeList = new List<Lehrendeentity>();
+                        lehrendeList.Add(lehrende);
+                        TheEvents.LoadLehrendeEntity(sender, lehrende);
                         TheEvents.StartLehrenden(sender, e);
+                        TheEvents.DownloadLehrendeData(sender, e);
                         break;
                     }
                 case '5':
                     {
+                        Lehrveranstaltungentity lehrveranstaltung = Grid_MainDataGrid.SelectedItem as Lehrveranstaltungentity; ;
+                        List<Lehrveranstaltungentity> lehrveranstaltungList = new List<Lehrveranstaltungentity>();
+                        lehrveranstaltungList.Add(lehrveranstaltung);
+                        TheEvents.LoadLehrveranstaltungEntity(sender, lehrveranstaltung);
                         TheEvents.StartLehrveranstaltung(sender, e);
+                        TheEvents.DownloadLehrveranstaltungData(sender, e);
                         break;
                     }
                 case '6':
                     {
+                        Raumentity raum = Grid_MainDataGrid.SelectedItem as Raumentity; ;
+                        List<Raumentity> raumList = new List<Raumentity>();
+                        raumList.Add(raum);
+                        TheEvents.LoadRaumEntity(sender, raum);
                         TheEvents.StartRaum(sender, e);
+                        TheEvents.DownloadRaumData(sender, e);
                         break;
                     }
             }

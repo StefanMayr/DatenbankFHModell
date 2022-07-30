@@ -26,6 +26,7 @@ namespace DatenbankFHModell
             InitializeComponent();
             TheDBManager = thedbmanager;
             TheEvents = theEvents;
+            TheEvents.InsertNewStudentEntity_requ += Insert_StudentData;
         }
 
         private void btn_Insert_Click(object sender, RoutedEventArgs e)
@@ -56,6 +57,27 @@ namespace DatenbankFHModell
             txt_Wohnort.Text = "";
             txt_Geschl.Text = "";
             txt_Alter.Text = "";
+        }
+
+        private void btn_Drop_Click(object sender, RoutedEventArgs e)
+        {
+            TheDBManager.DeleteStudent(Convert.ToInt32(txt_Matr.Text));
+            ClearWindow();
+
+        }
+
+        private void Insert_StudentData(object sender, Studententity e)
+        {
+            txt_Matr.Text = Convert.ToString(e.Matrikelnummer);
+            txt_Name.Text = Convert.ToString(e.Studentname);
+            txt_Wohnort.Text = Convert.ToString(e.StudentWohnort);
+            txt_Geschl.Text = Convert.ToString(e.StudentGeschlecht);
+            txt_Alter.Text = Convert.ToString(e.StudentAlter);
+        }
+
+        private void btn_update_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

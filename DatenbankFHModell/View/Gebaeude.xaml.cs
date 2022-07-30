@@ -27,6 +27,7 @@ namespace DatenbankFHModell
             InitializeComponent();
             TheDBManager = thedbmanager;
             TheEvents = theEvents;
+            TheEvents.InsertNewGebaeudeEntity_requ += Insert_GebaeudeData;
         }
 
         private void btn_Insert_Click(object sender, RoutedEventArgs e)
@@ -53,6 +54,22 @@ namespace DatenbankFHModell
         private void ClearWindow()
         {
             txt_Gebaude.Text = "";
+        }
+
+        private void btn_Drop_Click(object sender, RoutedEventArgs e)
+        {
+            TheDBManager.DeleteGebaeude(Convert.ToInt16(txt_Gebaude.Text));
+            ClearWindow();
+
+        }
+        private void Insert_GebaeudeData(object sender, Gebaeudeentity e)
+        {
+            txt_Gebaude.Text = Convert.ToString(e.Gebaeudenummer);
+        }
+
+        private void btn_update_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

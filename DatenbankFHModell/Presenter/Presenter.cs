@@ -59,7 +59,13 @@ namespace DatenbankFHModell
             TheEvent.StartStudent_has_LRequested += StartStudent_has_Lerhv;
             TheEvent.StartLehrende_has_LRequested += StartLehrende_has_Lerhv;
             TheEvent.StartLehrv_has_RRequested += StartLehrver_has_Raum;
+
             TheEvent.LoadFakultaEntityRequested += LoadFakultaEntity_requ;
+            TheEvent.LoadGebaeudeEntityRequested += LoadGebaeudeEntity_requ;
+            TheEvent.LoadStudentEntityRequested += LoadStudentEntity_requ;
+            TheEvent.LoadLehrendeEntityRequested += LoadLehrendeEntity_requ;
+            TheEvent.LoadLehrveranstaltungEntityRequested += LoadLehrveranstaltungEntity_requ;
+            TheEvent.LoadRaumEntityRequested += LoadRaumEntity_requ;
         }
 
         private void StartStudentPage(object sender, EventArgs e)
@@ -164,6 +170,27 @@ namespace DatenbankFHModell
         private void LoadFakultaEntity_requ(object sender, Fakultaetentity e)
         {
             TheEvent.InsertNewFakultaEntity(sender, e);
+        }
+
+        private void LoadGebaeudeEntity_requ(object sender, Gebaeudeentity e)
+        {
+            TheEvent.InsertNewGebaeudeEntity(sender, e);
+        }
+        private void LoadStudentEntity_requ(object sender, Studententity e)
+        {
+            TheEvent.InsertNewStudentEntity(sender, e);
+        }
+        private void LoadLehrendeEntity_requ(object sender, Lehrendeentity e)
+        {
+            TheEvent.InsertNewLehrendeEntity(sender, e);
+        }
+        private void LoadLehrveranstaltungEntity_requ(object sender, Lehrveranstaltungentity e)
+        {
+            TheEvent.InsertNewLehrveranstaltungEntity(sender, e);
+        }
+        private void LoadRaumEntity_requ(object sender, Raumentity e)
+        {
+            TheEvent.InsertNewRaumEntity(sender, e);
         }
     }
 }
