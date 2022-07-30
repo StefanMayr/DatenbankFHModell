@@ -70,7 +70,7 @@ namespace DatenbankFHModell
 
         private void btn_update_Click(object sender, RoutedEventArgs e)
         {
-
+            TheDBManager.Update_Raum(Convert.ToInt16(txt_Raumnummer.Text), Convert.ToInt16(txt_Gebäudenummer.Text));
         }
     }
 }

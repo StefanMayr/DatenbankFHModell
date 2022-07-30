@@ -58,8 +58,15 @@ namespace DatenbankFHModell
 
         private void btn_Drop_Click(object sender, RoutedEventArgs e)
         {
-            TheDBManager.DeleteGebaeude(Convert.ToInt16(txt_Gebaude.Text));
-            ClearWindow();
+            try
+            {
+                TheDBManager.DeleteGebaeude(Convert.ToInt16(txt_Gebaude.Text));
+                ClearWindow();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Verlinkte Gebäudenummern können nicht gelöscht werden!");
+            }
 
         }
         private void Insert_GebaeudeData(object sender, Gebaeudeentity e)

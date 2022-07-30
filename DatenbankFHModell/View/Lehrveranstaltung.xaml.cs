@@ -69,13 +69,13 @@ namespace DatenbankFHModell
         private void Insert_LehrveranstaltungData(object sender, Lehrveranstaltungentity e)
         {
             txt_Lehrveranstaltungsname.Text = Convert.ToString(e.Lehrveranstaltungsname);
-            txt_Lehrveranstaltungsname.Text = Convert.ToString(e.Lehrveranstaltungsnummer);
-            txt_Lehrveranstaltungsname.Text = Convert.ToString(e.Einheit);
+            txt_Lehrveranstaltungsnummer.Text = Convert.ToString(e.Lehrveranstaltungsnummer);
+            txt_Einheit.Text = Convert.ToString(e.Einheit);
         }
 
         private void btn_update_Click(object sender, RoutedEventArgs e)
         {
-
+            //TheDBManager.Update_Lehrveranstaltung(Convert.ToInt16(txt_Lehrveranstaltungsnummer.Text), txt_Lehrveranstaltungsname.Text, , Convert.ToInt16(txt_Einheit.Text));
         }
     }
 

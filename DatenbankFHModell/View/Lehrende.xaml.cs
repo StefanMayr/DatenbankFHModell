@@ -79,7 +79,7 @@ namespace DatenbankFHModell
 
         private void btn_update_Click(object sender, RoutedEventArgs e)
         {
-
+            TheDBManager.Update_Lehrende(Convert.ToInt16(txt_Pers.Text), txt_Name.Text, txt_Wohnort.Text, Convert.ToInt16(txt_Alter.Text), txt_Ausbildung.Text, txt_Geschl.Text, Convert.ToInt16(txt_Fakultät.Text));
         }
     }
 }

@@ -321,7 +321,7 @@ namespace DatenbankFHModell
         /// <param name="Gebaeudenummer"></param>
         public void PushRaum(int Raumnummer, int Gebaeudenummer)
         {
-            string query = "INSERT INTO raum(Raumnummer,Gebaeudenummer) VALUES (" + Raumnummer + "," + Gebaeudenummer + ");";
+            string query = "INSERT INTO raum(Raumnummer,Gebaeude_Gebaeudenummer) VALUES (" + Raumnummer + "," + Gebaeudenummer + ");";
             Insert(query);
         }
 
@@ -897,7 +897,7 @@ namespace DatenbankFHModell
 
         public void Update_Fakultaetname(int Fakultaetnummer, string Neuerfakultaetname)
         {
-            string query = "Update mydb.fakultät set NameFakultät = " + Neuerfakultaetname + "where Fakultätnummer = " + Fakultaetnummer + ";";
+            string query = "Update mydb.fakultät set NameFakultät = '" + Neuerfakultaetname + "' where Fakultätnummer = '" + Fakultaetnummer + "';";
 
             if (this.Update(query))
             {
@@ -911,7 +911,7 @@ namespace DatenbankFHModell
 
         public void Update_Lehrende(int Personalnummer, string Neuername, string NeuerWohn, int Neualter, string NeuAusbildung, string Neugeschl, int Neufakult)
         {
-            string query = "Update mydb.lehrende set NameLehrender = '" + Personalnummer + "', WohnortLehrender = '" + NeuerWohn + "', AlterLehrender = " + Neualter + ", AusbildungLehrender = '" + NeuAusbildung + "', GeschlechtLehrender = '" + Neugeschl + "', Fakultät_Fakultätnummer = " + Neufakult + " where Personalnummer = 0;";
+            string query = "Update mydb.lehrende set NameLehrender = '" + Neuername + "', WohnortLehrender = '" + NeuerWohn + "', AlterLehrender = " + Neualter + ", AusbildungLehrender = '" + NeuAusbildung + "', GeschlechtLehrender = '" + Neugeschl + "', Fakultät_Fakultätnummer = " + Neufakult + " where Personalnummer = " + Personalnummer + ";";
 
             if (this.Update(query))
             {
@@ -963,6 +963,32 @@ namespace DatenbankFHModell
             else
             {
                 MessageBox.Show("Verbindung zur Datenbank abgebrochen.");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Raumnummer"></param>
+        /// <param name="Neuername"></param>
+        /// <param name="NeuerWohnort"></param>
+        /// <param name="NeuesGeschlecht"></param>
+        /// <param name="NeueAlter"></param>
+        public void Update_Raum(int Raumnummer, int NeueGebäudenummer)
+        {
+            string query = "Update mydb.raum set Gebaeude_Gebaeudenummer = '" + NeueGebäudenummer + "' where Raumnummer = '" + Raumnummer + "';";
+
+
+            try
+            {             
+                if (this.Update(query))
+                {
+                    MessageBox.Show("Aktualisierung erfolgreich.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Es können nur Gebäudenummern von bestehenden Gebäuden gewählt werden!");
             }
         }
 
@@ -1099,7 +1125,7 @@ namespace DatenbankFHModell
                 {
                     if (!dataReader.IsDBNull(0))
                     {
-                        Lehrveranstaltung_Lehrveranstaltungsnummer = dataReader.GetInt16(0);
+                        Lehrveranstaltung_Lehrveranstaltungsnummer = dataReader.GetInt32(0);
                     }
                     if (!dataReader.IsDBNull(1))
                     {

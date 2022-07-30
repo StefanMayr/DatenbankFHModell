@@ -77,7 +77,7 @@ namespace DatenbankFHModell
 
         private void btn_update_Click(object sender, RoutedEventArgs e)
         {
-
+            TheDBManager.Update_Student(Convert.ToInt16(txt_Matr.Text), txt_Name.Text, txt_Wohnort.Text, txt_Geschl.Text, Convert.ToInt16(txt_Alter.Text));
         }
     }
 }

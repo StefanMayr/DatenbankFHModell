@@ -89,7 +89,7 @@ namespace DatenbankFHModell
         //Daten an DBManager übergeben und überprüfen ob vorhanden, sonst erstellen oder updaten
         private void btn_update_Click(object sender, RoutedEventArgs e)
         {
-
+            TheDBManager.Update_Fakultaetname(Convert.ToInt16(txt_FakNr.Text), txt_FakName.Text);
         }
     }
 }
