@@ -932,7 +932,7 @@ namespace DatenbankFHModell
         /// <param name="NeueEinheit"></param>
         public void Update_Lehrveranstaltung(int Lehrveranstaltungsnummer, string Neuername, DateTime NeuesDatum, int NeueEinheit)
         {
-            string query = "Update mydb.lehrveranstaltung set NameLehrveranstaltung = '" + Neuername + "', DatumLehrveranstaltung = '" + NeuesDatum + "', Einheit = " + NeueEinheit + "where Lehrveranstaltungsnummer = " + Lehrveranstaltungsnummer + ";";
+            string query = "Update mydb.lehrveranstaltung set NameLehrveranstaltung = '" + Neuername + "', DatumLehrveranstaltung = '" + NeuesDatum.ToString("yyyy-MM-dd HH:mm:ss") + "', Einheit = " + NeueEinheit + " where Lehrveranstaltungsnummer = " + Lehrveranstaltungsnummer + ";";
 
             if (this.Update(query))
             {

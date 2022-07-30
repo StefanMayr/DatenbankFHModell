@@ -62,7 +62,7 @@ namespace DatenbankFHModell
 
         private void btn_Drop_Click(object sender, RoutedEventArgs e)
         {
-            TheDBManager.DeleteLehrveranstaltung(Convert.ToInt16(txt_Lehrveranstaltungsnummer.Text));
+            TheDbManager.DeleteLehrveranstaltung(Convert.ToInt16(txt_Lehrveranstaltungsnummer.Text));
             ClearWindow();
 
         }
@@ -76,7 +76,7 @@ namespace DatenbankFHModell
 
         private void btn_update_Click(object sender, RoutedEventArgs e)
         {
-            TheDBManager.Update_Lehrveranstaltung(Convert.ToInt16(txt_Lehrveranstaltungsnummer.Text), txt_Lehrveranstaltungsname.Text, Convert.ToDateTime(Dtp_Datetime.Text), Convert.ToInt16(txt_Einheit.Text));
+            TheDbManager.Update_Lehrveranstaltung(Convert.ToInt16(txt_Lehrveranstaltungsnummer.Text), txt_Lehrveranstaltungsname.Text, Convert.ToDateTime(Dtp_Datetime.SelectedDate), Convert.ToInt16(txt_Einheit.Text));
         }
     }
 
